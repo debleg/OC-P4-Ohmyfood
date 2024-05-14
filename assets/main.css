@@ -13,6 +13,11 @@ button {
   border: none;
 }
 
+main {
+  padding: 17px;
+  /*rajouter 3 aux titres alignés à gauche*/
+}
+
 /*Google fonts imports */
 .roboto-light {
   font-family: "Roboto", sans-serif;
@@ -43,24 +48,35 @@ button {
   height: 63px;
   padding: 0 17px;
   display: flex;
+  justify-content: center;
   align-items: center;
+  filter: drop-shadow(rgba(0, 0, 0, 0.15) 0 2px 4px);
 }
 .header .header__goback {
-  display: flex;
   height: 30px;
   width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .header .header__logo {
   text-align: center;
+  height: 36px;
+  font-family: "Shrikhand", serif;
+  font-size: 30px;
+  padding: 0 17.5px;
+  flex-grow: 1;
 }
 
 .location {
   height: 50px;
-  background-color: #F3F3F3;
+  background-color: #EAEAEA;
+  color: #353535;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 17px;
+  filter: drop-shadow(rgba(0, 0, 0, 0.25) 0 4px 4px);
 }
 .location .location__icon {
   width: 12px;
@@ -72,9 +88,43 @@ button {
   font-weight: bold;
 }
 
-main {
-  padding: 17px;
-  /*rajouter 3 aux titres alignés à gauche*/
+.cta {
+  padding-top: 39px;
+  padding-bottom: 57px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.cta .cta__title {
+  display: flex;
+  font-family: "Roboto", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  padding-bottom: 20px;
+  text-align: center;
+}
+.cta .cta__text {
+  display: flex;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  padding-bottom: 35px;
+  text-align: center;
+}
+.cta .cta__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 218px;
+  height: 50px;
+  border-radius: 25px;
+  background: linear-gradient(#FF79DA, #9356DC);
+  filter: drop-shadow(rgba(0, 0, 0, 0.25) 0 4px 10px);
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
 }
 
 .footer {
@@ -106,16 +156,4 @@ main {
 .footer .footer__nav a {
   display: flex;
   align-items: center;
-}
-
-.cta button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 218px;
-  height: 50px;
-  border-radius: 25px;
-  background: linear-gradient(#FF79DA, #9356DC);
-  filter: drop-shadow(rgba(0, 0, 0, 0.25) 0 4px 10px);
-  color: white;
 }/*# sourceMappingURL=main.css.map */

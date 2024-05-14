@@ -11,20 +11,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&family=Shrikhand&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="header">
+    <header>
+        <div class="header">
             <a class="header__goback" href="./index.html"><i class="fa-solid fa-arrow-left"></i></a>
-            <img class="header__logo" src="./assets/images/logo/ohmyfood.png" alt="Logo ohmyfood">
-        </header>
+            <p class="header__logo">ohmyfood</p>
+        </div>
+    
         <div class="location">
             <i class="location__icon fa-solid fa-location-dot"></i>
             <p class="location__text">Paris, Belleville</p>
-        </div>        
+        </div>   
+    </header>         
     <main>
         
     <section class="cta">
-        <h2 class="section-title">Réservez le menu qui vous convient</h2>
-        <p>Découvrez des restaurants d'exception, sélectionnés par nos soins.</p>
-        <a><button>Explorer nos restaurants</button></a>
+        <h2 class="cta__title section-title">Réservez le menu qui vous convient</h2>
+        <p class="cta__text">Découvrez des restaurants d'exception, sélectionnés par nos soins.</p>
+        <a class="cta__link"><button class="cta__button">Explorer nos restaurants</button></a>
     </section>
     <section class="function">
         <h2 class="section-title">Fonctionnement</h2>
@@ -104,7 +107,7 @@
 
     </main>
     <footer class="footer">
-        <p class="footer__logo">Ohmyfood</p>
+        <p class="footer__logo">ohmyfood</p>
         <div class="footer__nav">
             <div class="footer__navsection">
                 <a href="#"><i class="fa-solid fa-utensils"></i><p>Proposer un restaurant</p></a>

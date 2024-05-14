@@ -5,7 +5,7 @@ $secondary-color: #FF79DA;
 $accent-color: #99E2D0;
 $accent-font-color: #008766;
 $background-color-light:#F3F3F3;
-$background-color-dark: #353535;
+$background-color-dark: #353535; //no?? that's the location font color
 
 $font-family-logo: "Shrikhand", serif;
 $font-h3: 24px bold "Roboto", sans-serif;
@@ -17,6 +17,11 @@ $font-h3: 24px bold "Roboto", sans-serif;
 }
 
 // mixin pour titre
+
+main {
+  padding: 17px;
+  /*rajouter 3 aux titres alignés à gauche*/
+}
 
 /*Google fonts imports */
 .roboto-light {
@@ -44,26 +49,37 @@ $font-h3: 24px bold "Roboto", sans-serif;
     
 
   /*** ***/
-  .header{
+
+  .header {
     height: 63px;
     padding: 0 17px;
-    display: flex;
-    align-items: center;
+    @include flex-center;
+    filter: drop-shadow(rgba(0, 0, 0, 0.15) 0 2px 4px);
     .header__goback {
-      display: flex;
       height: 30px;
       width: 30px;
+      @include flex-center;
+
     }
     .header__logo {
     text-align: center;
+    height: 36px;
+    font-family: "Shrikhand", serif;
+    font-size: 30px;
+    padding: 0 17.5px;
+    flex-grow: 1;
     }
   }
 
+
   .location {
    height: 50px;
-   background-color: $background-color-light;
+   background-color: #EAEAEA;
+   color: #353535;
   @include flex-center;
    gap: 17px;
+   filter: drop-shadow(rgba(0, 0, 0, 0.25) 0 4px 4px);
+   //above disappears on desktop
    .location__icon {
     width: 12px;
     height: 16px;
@@ -76,10 +92,35 @@ $font-h3: 24px bold "Roboto", sans-serif;
    }
   }
 
-main {
-  padding: 17px;
-  /*rajouter 3 aux titres alignés à gauche*/
+
+.cta {
+  padding-top: 39px; //not sure, calculations
+  padding-bottom: 57px; //idem
+  @include flex-center;
+  flex-direction: column;
+  .cta__title {
+    display: flex;  
+    font-family: "Roboto", sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    padding-bottom: 20px;
+    text-align: center;
+
+  }
+  .cta__text {
+    display: flex;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    padding-bottom: 35px;
+    text-align: center;
+  }
+  .cta__button {
+  @include cta-button($button-width-explore)
 }
+}
+
+
 
 .footer {
   background-color: $background-color-dark;
@@ -91,7 +132,7 @@ main {
   .footer__logo {
     font-family: "Shrikhand", serif;
     font-size: 18px;
-    text-align: top left;
+    text-align: top left; // not working on devtools
     width: 137px;
     height: 27px;
     margin-bottom: 16px;
@@ -113,6 +154,7 @@ main {
 }
 
 
-.cta button {
-  @include cta-button($button-width-explore)
-}
+
+
+
+//have section-title as a separate thing for h3?
