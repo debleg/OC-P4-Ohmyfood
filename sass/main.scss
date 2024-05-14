@@ -18,10 +18,10 @@ $font-h3: 24px bold "Roboto", sans-serif;
 
 // mixin pour titre
 
-main {
-  padding: 17px;
-  /*rajouter 3 aux titres alignés à gauche*/
-}
+// main {
+//   padding: 17px;
+//   /*rajouter 3 aux titres alignés à gauche*/
+// }
 
 /*Google fonts imports */
 .roboto-light {
@@ -50,47 +50,48 @@ main {
 
   /*** ***/
 
-  .header {
-    height: 63px;
-    padding: 0 17px;
-    @include flex-center;
-    filter: drop-shadow(rgba(0, 0, 0, 0.15) 0 2px 4px);
-    .header__goback {
-      height: 30px;
-      width: 30px;
-      @include flex-center;
-
-    }
-    .header__logo {
-    text-align: center;
-    height: 36px;
-    font-family: "Shrikhand", serif;
-    font-size: 30px;
-    padding: 0 17.5px;
-    flex-grow: 1;
-    }
-  }
-
-
-  .location {
-   height: 50px;
-   background-color: #EAEAEA;
-   color: #353535;
+.header {
+  height: 63px;
+  background-color: white;
+  padding: 0 17px;
   @include flex-center;
-   gap: 17px;
-   filter: drop-shadow(rgba(0, 0, 0, 0.25) 0 4px 4px);
-   //above disappears on desktop
-   .location__icon {
-    width: 12px;
-    height: 16px;
-    display: flex;
-   }
-   .location__text {
-    font-family: 'Roboto', sans-serif;
-    font-weight: bold;
+  filter: drop-shadow(rgba(0, 0, 0, 0.25) 0 4px 4px);
 
-   }
+  .header__goback {
+    height: 30px;
+    width: 30px;
+    @include flex-center;
+
   }
+  .header__logo {
+  text-align: center;
+  height: 36px;
+  font-family: "Shrikhand", serif;
+  font-size: 30px;
+  padding: 0 17.5px;
+  flex-grow: 1;
+  }
+}
+
+
+.location {
+  height: 50px;
+  background-color: #EAEAEA;
+  color: #353535;
+@include flex-center;
+  gap: 17px;
+  filter: drop-shadow(rgba(0, 0, 0, 0.25) 0 4px 4px);
+  //above disappears on desktop
+  .location__icon {
+  width: 12px;
+  height: 16px;
+  display: flex;
+  }
+  .location__text {
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  }
+}
 
 
 .cta {
@@ -119,6 +120,10 @@ main {
   @include cta-button($button-width-explore)
 }
 }
+
+
+
+
 
 
 
@@ -153,8 +158,70 @@ main {
   }
 }
 
+//function
+
+
+//restaurants
+
+.restaurants {
+  background-color: $background-color-light;
+  padding-bottom: 66px;
+  padding-top: 56px;
+  padding-right: 17px;
+  padding-left: 17px;
+  @include flex-center;
+  flex-direction: column;
+  gap: 18px;
+  .restaurants__title{
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    padding-bottom: 23px;
+    padding-left: 3px; //not working
+    align-self: self-start; //not working either
+  }
+  .restaurants-section {
+    @include flex-center; //remove alignitemcenter to avoid the squish
+    flex-direction: column;
+    gap: 18px;
+    .restaurants-card {
+      @include flex-center; //this makes the image lower than the border! the justify content center is doing that
+      flex-direction: column;
+      width: 100%;
+      height: 251px;
+      border-radius: 15px;
+      background-color: white;
+      .restaurants-card__image {
+        width: 100%;
+        height: 174px;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        object-fit: cover;
+
+        }
+    }
+  }
+}
 
 
 
 
 //have section-title as a separate thing for h3?
+//bold is already default though
+
+
+//see devtools for débordements/overflow in several places
+
+//attempt at mixin
+
+@mixin homepage-section-style($background-color) {
+  padding-left: 17px;
+  padding-right: 17px;
+  background-color: $background-color;
+}
+
+@mixin homepage-section-title($font-weight, $font-size) {
+  font-family: "Roboto", sans-serif;
+  font-weight: $font-weight;
+  font-size: $font-size;
+}
