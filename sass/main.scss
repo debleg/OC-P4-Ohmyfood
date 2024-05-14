@@ -1,3 +1,5 @@
+@import './resets', './buttons';
+
 $primary-color: #9356DC;
 $secondary-color: #FF79DA;
 $accent-color: #99E2D0;
@@ -8,7 +10,13 @@ $background-color-dark: #353535;
 $font-family-logo: "Shrikhand", serif;
 $font-h3: 24px bold "Roboto", sans-serif;
 
-mixin pour titre
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// mixin pour titre
 
 /*Google fonts imports */
 .roboto-light {
@@ -52,7 +60,20 @@ mixin pour titre
   }
 
   .location {
-    border: 2px solid red;
+   height: 50px;
+   background-color: $background-color-light;
+  @include flex-center;
+   gap: 17px;
+   .location__icon {
+    width: 12px;
+    height: 16px;
+    display: flex;
+   }
+   .location__text {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+
+   }
   }
 
 main {
@@ -92,24 +113,6 @@ main {
 }
 
 
-
-
-
-  /*this should go in resets? */
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-  button {
-    background-color: none;
-    border: none;
-  }
-  .fa-solid {
-    display: inline-block;
-  }
-  body {
-    margin: 0;
-  }
-  p {
-    margin: 0;
-  }
+.cta button {
+  @include cta-button($button-width-explore)
+}

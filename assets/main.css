@@ -1,5 +1,20 @@
 @charset "UTF-8";
-mixin pour titre .roboto-light {
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+}
+
+/*Google fonts imports */
+.roboto-light {
   font-family: "Roboto", sans-serif;
   font-weight: 300;
   font-style: normal;
@@ -40,7 +55,21 @@ mixin pour titre .roboto-light {
 }
 
 .location {
-  border: 2px solid red;
+  height: 50px;
+  background-color: #F3F3F3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 17px;
+}
+.location .location__icon {
+  width: 12px;
+  height: 16px;
+  display: flex;
+}
+.location .location__text {
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
 }
 
 main {
@@ -79,25 +108,14 @@ main {
   align-items: center;
 }
 
-/*this should go in resets? */
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-button {
-  background-color: none;
-  border: none;
-}
-
-.fa-solid {
-  display: inline-block;
-}
-
-body {
-  margin: 0;
-}
-
-p {
-  margin: 0;
+.cta button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 218px;
+  height: 50px;
+  border-radius: 25px;
+  background: linear-gradient(#FF79DA, #9356DC);
+  filter: drop-shadow(rgba(0, 0, 0, 0.25) 0 4px 10px);
+  color: white;
 }/*# sourceMappingURL=main.css.map */
