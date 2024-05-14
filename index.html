@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Ohmyfood</title>
     <link rel="stylesheet" href="./assets/main.css">
     <script src="https://kit.fontawesome.com/4570b0b7eb.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,17 +11,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&family=Shrikhand&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <a href="./index.html"><i class="fa-solid fa-arrow-left"></i></a>
-            <img src="./assets/images/logo/ohmyfood.png" alt="Logo ohmyfood">
-        </nav>
+    <header class="header">
+            <a class="header__goback" href="./index.html"><i class="fa-solid fa-arrow-left"></i></a>
+            <img class="header__logo" src="./assets/images/logo/ohmyfood.png" alt="Logo ohmyfood">
+        </header>
         <div class="location">
-            <i class="fa-solid fa-location-dot"></i>
-            <p>Paris, Belleville</p>
-        </div>
-    </header>
+            <i class="location__icon fa-solid fa-location-dot"></i>
+            <p class="location__text">Paris, Belleville</p>
+        </div>        
     <main>
+        
     <section class="cta">
         <h2 class="section-title">Réservez le menu qui vous convient</h2>
         <p>Découvrez des restaurants d'exception, sélectionnés par nos soins.</p>
@@ -104,17 +103,17 @@
     </section>
 
     </main>
-    <footer>
-    <!--Needs to be white writing on black background-->
-
-        <img src="./assets/images/logo/ohmyfood@2x.svg">
-        <div class="partner">
-            <a href="#"><i class="fa-solid fa-utensils"></i><p>Proposer un restaurant</p></a>
-            <a href="#"><i class="fa-solid fa-handshake-angle"></i><p>Devenir partenaire</p></a>
-        </div>
-        <div class="legal">
-            <a href="#"><p>Mentions légales</p></a>
-            <a href="#"><p>Contact</p></a>
+    <footer class="footer">
+        <p class="footer__logo">Ohmyfood</p>
+        <div class="footer__nav">
+            <div class="footer__navsection">
+                <a href="#"><i class="fa-solid fa-utensils"></i><p>Proposer un restaurant</p></a>
+                <a href="#"><i class="fa-solid fa-handshake-angle"></i><p>Devenir partenaire</p></a>
+            </div>
+            <div class="footer__navsection">
+                <a href="#"><p>Mentions légales</p></a>
+                <a href="#"><p>Contact</p></a>
+            </div>
         </div>
     </footer>
 </body>

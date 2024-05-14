@@ -1,5 +1,5 @@
-/*Google fonts imports */
-.roboto-light {
+@charset "UTF-8";
+mixin pour titre .roboto-light {
   font-family: "Roboto", sans-serif;
   font-weight: 300;
   font-style: normal;
@@ -21,4 +21,83 @@
   font-family: "Shrikhand", serif;
   font-weight: 400;
   font-style: normal;
+}
+
+/*** ***/
+.header {
+  height: 63px;
+  padding: 0 17px;
+  display: flex;
+  align-items: center;
+}
+.header .header__goback {
+  display: flex;
+  height: 30px;
+  width: 30px;
+}
+.header .header__logo {
+  text-align: center;
+}
+
+.location {
+  border: 2px solid red;
+}
+
+main {
+  padding: 17px;
+  /*rajouter 3 aux titres alignés à gauche*/
+}
+
+.footer {
+  background-color: #353535;
+  color: white;
+  height: 186px;
+  padding: 22px 25px;
+  display: flex;
+  flex-direction: column;
+}
+.footer .footer__logo {
+  font-family: "Shrikhand", serif;
+  font-size: 18px;
+  text-align: top left;
+  width: 137px;
+  height: 27px;
+  margin-bottom: 16px;
+}
+.footer .footer__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.footer .footer__navsection {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.footer .footer__nav a {
+  display: flex;
+  align-items: center;
+}
+
+/*this should go in resets? */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  background-color: none;
+  border: none;
+}
+
+.fa-solid {
+  display: inline-block;
+}
+
+body {
+  margin: 0;
+}
+
+p {
+  margin: 0;
 }/*# sourceMappingURL=main.css.map */
