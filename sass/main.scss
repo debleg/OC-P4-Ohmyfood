@@ -6,6 +6,7 @@ $accent-color: #99E2D0;
 $accent-font-color: #008766;
 $background-color-light:#F3F3F3;
 $background-color-dark: #353535; //no?? that's the location font color
+// no again it's the footer
 
 $font-family-logo: "Shrikhand", serif;
 $font-h3: 24px bold "Roboto", sans-serif;
@@ -25,38 +26,46 @@ $font-h3: 24px bold "Roboto", sans-serif;
 
 /*Google fonts imports */
 .roboto-light {
-    font-family: "Roboto", sans-serif;
-    font-weight: 300;
-    font-style: normal;
-  }
-  
-  .roboto-medium {
-    font-family: "Roboto", sans-serif;
-    font-weight: 500;
-    font-style: normal;
-  }
-  
-  .roboto-bold {
-    font-family: "Roboto", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-  }
-  .shrikhand-regular {
-    font-family: "Shrikhand", serif;
-    font-weight: 400;
-    font-style: normal;
-  }
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.roboto-regular {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.roboto-medium {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.roboto-bold {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+.shrikhand-regular {
+  font-family: "Shrikhand", serif;
+  font-weight: 400;
+  font-style: normal;
+}
     
 
   /*** ***/
 
+
+  
+
 .header {
   height: 63px;
-  background-color: white;
   padding: 0 17px;
   @include flex-center;
-  filter: drop-shadow(rgba(0, 0, 0, 0.25) 0 4px 4px);
-
+  //filter: drop-shadow(rgba(0, 0, 0, 0.25) 0 4px 4px);
+  box-shadow: 0 4px 4px 4px rgba(0, 0, 0, 0.25);
   .header__goback {
     height: 30px;
     width: 30px;
@@ -130,33 +139,55 @@ $font-h3: 24px bold "Roboto", sans-serif;
 .footer {
   background-color: $background-color-dark;
   color: white;
-  height: 186px;
+  height: 142px;
   padding: 22px 25px;
   display: flex;
   flex-direction: column;
   .footer__logo {
     font-family: "Shrikhand", serif;
     font-size: 18px;
-    text-align: top left; // not working on devtools
+    text-align: left;
+    vertical-align: text-top;
     width: 137px;
     height: 27px;
     margin-bottom: 16px;
   }
-  .footer__nav {
+  .footer__nav { //could technically add the one below with a comma?
     display: flex;
     flex-direction: column;
     gap: 7px;
-  }
-  .footer__navsection{
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-  }
-  .footer__nav a{
-    display: flex;
-    align-items: center;
+
+    .footer__navsection{
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+
+
+      .footer__link {
+        //empty??
+        font-family: inherit; //remove
+      }
+      .footer__link--medium {
+        font-family: "Roboto", sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        .footer__icon{
+          width: 12px;
+          margin-right: 9px;
+        }
+      }
+      .footer__link--regular {
+        font-family: "Roboto", sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+      }
+    }
   }
 }
+
+
+
+
 
 //function
 
@@ -170,6 +201,7 @@ $font-h3: 24px bold "Roboto", sans-serif;
   padding-right: 17px;
   padding-left: 17px;
   @include flex-center;
+  display: flex;
   flex-direction: column;
   gap: 18px;
   .restaurants__title{
@@ -211,6 +243,8 @@ $font-h3: 24px bold "Roboto", sans-serif;
 
 
 //see devtools for débordements/overflow in several places
+
+//reopen brief creatif and commit more regularly
 
 //attempt at mixin
 

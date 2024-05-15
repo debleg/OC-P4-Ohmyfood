@@ -19,6 +19,12 @@ button {
   font-style: normal;
 }
 
+.roboto-regular {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 .roboto-medium {
   font-family: "Roboto", sans-serif;
   font-weight: 500;
@@ -40,12 +46,11 @@ button {
 /*** ***/
 .header {
   height: 63px;
-  background-color: white;
   padding: 0 17px;
   display: flex;
   justify-content: center;
   align-items: center;
-  filter: drop-shadow(rgba(0, 0, 0, 0.25) 0 4px 4px);
+  box-shadow: 0 4px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .header .header__goback {
   height: 30px;
@@ -125,7 +130,7 @@ button {
 .footer {
   background-color: #353535;
   color: white;
-  height: 186px;
+  height: 142px;
   padding: 22px 25px;
   display: flex;
   flex-direction: column;
@@ -133,7 +138,8 @@ button {
 .footer .footer__logo {
   font-family: "Shrikhand", serif;
   font-size: 18px;
-  text-align: top left;
+  text-align: left;
+  vertical-align: text-top;
   width: 137px;
   height: 27px;
   margin-bottom: 16px;
@@ -143,14 +149,27 @@ button {
   flex-direction: column;
   gap: 7px;
 }
-.footer .footer__navsection {
+.footer .footer__nav .footer__navsection {
   display: flex;
   flex-direction: column;
   gap: 7px;
 }
-.footer .footer__nav a {
-  display: flex;
-  align-items: center;
+.footer .footer__nav .footer__navsection .footer__link {
+  font-family: inherit;
+}
+.footer .footer__nav .footer__navsection .footer__link--medium {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+}
+.footer .footer__nav .footer__navsection .footer__link--medium .footer__icon {
+  width: 12px;
+  margin-right: 9px;
+}
+.footer .footer__nav .footer__navsection .footer__link--regular {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
 }
 
 .restaurants {
@@ -162,6 +181,7 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
+  display: flex;
   flex-direction: column;
   gap: 18px;
 }
