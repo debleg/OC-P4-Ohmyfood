@@ -5,11 +5,46 @@ $secondary-color: #FF79DA;
 $accent-color: #99E2D0;
 $accent-font-color: #008766;
 $background-color-light:#F3F3F3;
-$background-color-dark: #353535; //no?? that's the location font color
+$paler-dark-color: #353535;
+
+//no?? that's the location font color
 // no again it's the footer
 
-$font-family-logo: "Shrikhand", serif;
-$font-h3: 24px bold "Roboto", sans-serif;
+
+
+@mixin font-logo ($font-size) {
+font-family: "Shrikhand", serif;
+font-size: $font-size;
+}
+
+
+$font-light: 300;
+$font-regular: 400;
+$font-medium: 500;
+$font-bold: 700;
+
+
+@mixin text-font ($font-weight, $font-size) {
+  font-family: "Roboto", sans-serif;
+  font-weight: $font-weight;
+  font-size: $font-size;
+}
+
+
+@mixin homepage-section-style($background-color) {
+  padding-left: 17px;
+  padding-right: 17px;
+  background-color: $background-color;
+}
+
+// @mixin homepage-section-title($font-weight, $font-size) {
+//   font-family: "Roboto", sans-serif;
+//   font-weight: $font-weight;
+//   font-size: $font-size;
+// } above can handle all text
+
+
+
 
 @mixin flex-center {
   display: flex;
@@ -17,12 +52,6 @@ $font-h3: 24px bold "Roboto", sans-serif;
   align-items: center;
 }
 
-// mixin pour titre
-
-// main {
-//   padding: 17px;
-//   /*rajouter 3 aux titres alignés à gauche*/
-// }
 
 /*Google fonts imports */
 .roboto-light {
@@ -66,13 +95,13 @@ $font-h3: 24px bold "Roboto", sans-serif;
   @include flex-center;
   //filter: drop-shadow(rgba(0, 0, 0, 0.25) 0 4px 4px);
   box-shadow: 0 4px 4px 4px rgba(0, 0, 0, 0.25);
-  .header__goback {
+  &__goback {
     height: 30px;
     width: 30px;
     @include flex-center;
 
   }
-  .header__logo {
+  &__logo {
   text-align: center;
   height: 36px;
   font-family: "Shrikhand", serif;
@@ -86,48 +115,54 @@ $font-h3: 24px bold "Roboto", sans-serif;
 .location {
   height: 50px;
   background-color: #EAEAEA;
-  color: #353535;
-@include flex-center;
+  color: $paler-dark-color;
+  @include flex-center;
   gap: 17px;
   filter: drop-shadow(rgba(0, 0, 0, 0.25) 0 4px 4px);
   //above disappears on desktop
-  .location__icon {
+
+  &__icon {
   width: 12px;
   height: 16px;
   display: flex;
   }
-  .location__text {
+
+  &__text {
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
+  font-size: 16px;
   }
 }
 
-
+// needs padding on sides!!
 .cta {
   padding-top: 39px; //not sure, calculations
   padding-bottom: 57px; //idem
+  background-color: $background-color-light;
   @include flex-center;
   flex-direction: column;
-  .cta__title {
+  text-align: center;
+
+  &__title {
     display: flex;  
     font-family: "Roboto", sans-serif;
     font-size: 24px;
     font-weight: 700;
     padding-bottom: 20px;
-    text-align: center;
-
   }
-  .cta__text {
+
+  &__text {
     display: flex;
     font-family: "Roboto", sans-serif;
     font-weight: 300;
     font-size: 18px;
+    color: $paler-dark-color;
     padding-bottom: 35px;
-    text-align: center;
   }
-  .cta__button {
+
+  &__button {
   @include cta-button($button-width-explore)
-}
+  }
 }
 
 
@@ -137,53 +172,50 @@ $font-h3: 24px bold "Roboto", sans-serif;
 
 
 .footer {
-  background-color: $background-color-dark;
+  background-color: $paler-dark-color;
   color: white;
   height: 142px;
   padding: 22px 25px;
   display: flex;
   flex-direction: column;
-  .footer__logo {
-    font-family: "Shrikhand", serif;
-    font-size: 18px;
+
+  &__logo {
+    @include font-logo(18px);
     text-align: left;
     vertical-align: text-top;
     width: 137px;
     height: 27px;
     margin-bottom: 16px;
   }
-  .footer__nav { //could technically add the one below with a comma?
+
+  &__nav,
+  &__navsection {
     display: flex;
     flex-direction: column;
     gap: 7px;
 
-    .footer__navsection{
-      display: flex;
-      flex-direction: column;
-      gap: 7px;
+  }
+  &__link {
+    .footer__icon{
+        width: 12px;
+        margin-right: 9px;
+      }
 
+    &--medium {
+      font-family: "Roboto", sans-serif;
+      font-weight: 500;
+      font-size: 16px;
+    }
 
-      .footer__link {
-        //empty??
-        font-family: inherit; //remove
-      }
-      .footer__link--medium {
-        font-family: "Roboto", sans-serif;
-        font-weight: 500;
-        font-size: 16px;
-        .footer__icon{
-          width: 12px;
-          margin-right: 9px;
-        }
-      }
-      .footer__link--regular {
-        font-family: "Roboto", sans-serif;
-        font-weight: 400;
-        font-size: 16px;
-      }
+    &--regular {
+      font-family: "Roboto", sans-serif;
+      font-weight: 400;
+      font-size: 16px;
     }
   }
 }
+  
+
 
 
 
@@ -236,26 +268,6 @@ $font-h3: 24px bold "Roboto", sans-serif;
 }
 
 
-
-
-//have section-title as a separate thing for h3?
-//bold is already default though
-
-
 //see devtools for débordements/overflow in several places
 
 //reopen brief creatif and commit more regularly
-
-//attempt at mixin
-
-@mixin homepage-section-style($background-color) {
-  padding-left: 17px;
-  padding-right: 17px;
-  background-color: $background-color;
-}
-
-@mixin homepage-section-title($font-weight, $font-size) {
-  font-family: "Roboto", sans-serif;
-  font-weight: $font-weight;
-  font-size: $font-size;
-}

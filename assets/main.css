@@ -52,14 +52,14 @@ button {
   align-items: center;
   box-shadow: 0 4px 4px 4px rgba(0, 0, 0, 0.25);
 }
-.header .header__goback {
+.header__goback {
   height: 30px;
   width: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.header .header__logo {
+.header__logo {
   text-align: center;
   height: 36px;
   font-family: "Shrikhand", serif;
@@ -78,41 +78,43 @@ button {
   gap: 17px;
   filter: drop-shadow(rgba(0, 0, 0, 0.25) 0 4px 4px);
 }
-.location .location__icon {
+.location__icon {
   width: 12px;
   height: 16px;
   display: flex;
 }
-.location .location__text {
+.location__text {
   font-family: "Roboto", sans-serif;
   font-weight: bold;
+  font-size: 16px;
 }
 
 .cta {
   padding-top: 39px;
   padding-bottom: 57px;
+  background-color: #F3F3F3;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  text-align: center;
 }
-.cta .cta__title {
+.cta__title {
   display: flex;
   font-family: "Roboto", sans-serif;
   font-size: 24px;
   font-weight: 700;
   padding-bottom: 20px;
-  text-align: center;
 }
-.cta .cta__text {
+.cta__text {
   display: flex;
   font-family: "Roboto", sans-serif;
   font-weight: 300;
   font-size: 18px;
+  color: #353535;
   padding-bottom: 35px;
-  text-align: center;
 }
-.cta .cta__button {
+.cta__button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -135,7 +137,7 @@ button {
   display: flex;
   flex-direction: column;
 }
-.footer .footer__logo {
+.footer__logo {
   font-family: "Shrikhand", serif;
   font-size: 18px;
   text-align: left;
@@ -144,29 +146,21 @@ button {
   height: 27px;
   margin-bottom: 16px;
 }
-.footer .footer__nav {
+.footer__nav, .footer__navsection {
   display: flex;
   flex-direction: column;
   gap: 7px;
 }
-.footer .footer__nav .footer__navsection {
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
+.footer__link .footer__icon {
+  width: 12px;
+  margin-right: 9px;
 }
-.footer .footer__nav .footer__navsection .footer__link {
-  font-family: inherit;
-}
-.footer .footer__nav .footer__navsection .footer__link--medium {
+.footer__link--medium {
   font-family: "Roboto", sans-serif;
   font-weight: 500;
   font-size: 16px;
 }
-.footer .footer__nav .footer__navsection .footer__link--medium .footer__icon {
-  width: 12px;
-  margin-right: 9px;
-}
-.footer .footer__nav .footer__navsection .footer__link--regular {
+.footer__link--regular {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 16px;
