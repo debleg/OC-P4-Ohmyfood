@@ -52,37 +52,14 @@ $font-bold: 700;
   align-items: center;
 }
 
-
-/*Google fonts imports */
-.roboto-light {
-  font-family: "Roboto", sans-serif;
-  font-weight: 300;
-  font-style: normal;
+@mixin flex-param ($flex-direction, $justify-content, $align-items, $gap) {
+  display: flex;
+  flex-direction: $flex-direction;
+  justify-content: $justify-content;
+  align-items: $align-items;
+  gap: $gap;
 }
 
-.roboto-regular {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.roboto-medium {
-  font-family: "Roboto", sans-serif;
-  font-weight: 500;
-  font-style: normal;
-}
-
-.roboto-bold {
-  font-family: "Roboto", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-}
-.shrikhand-regular {
-  font-family: "Shrikhand", serif;
-  font-weight: 400;
-  font-style: normal;
-}
-    
 
   /*** ***/
 
@@ -90,24 +67,24 @@ $font-bold: 700;
   
 
 .header {
+  @include homepage-section-style(white);
+  @include flex-param(row, center, center, 0px);
   height: 63px;
-  padding: 0 17px;
-  @include flex-center;
   //filter: drop-shadow(rgba(0, 0, 0, 0.25) 0 4px 4px);
-  box-shadow: 0 4px 4px 4px rgba(0, 0, 0, 0.25);
+  //box-shadow: 0 4px 4px 4px rgba(0, 0, 0, 0.25);
+
   &__goback {
+   @include flex-param(row, center, center, 0px); 
     height: 30px;
     width: 30px;
-    @include flex-center;
-
   }
+
   &__logo {
-  text-align: center;
-  height: 36px;
-  font-family: "Shrikhand", serif;
-  font-size: 30px;
-  padding: 0 17.5px;
-  flex-grow: 1;
+    @include font-logo(30px);
+    text-align: center;
+    height: 36px;
+    padding: 0 17.5px;
+    flex-grow: 1;
   }
 }
 
@@ -134,28 +111,24 @@ $font-bold: 700;
   }
 }
 
-// needs padding on sides!!
+
 .cta {
+  @include homepage-section-style($background-color-light);
   padding-top: 39px; //not sure, calculations
   padding-bottom: 57px; //idem
-  background-color: $background-color-light;
-  @include flex-center;
+  @include flex-param(column, center, center, 0px);
   flex-direction: column;
   text-align: center;
 
   &__title {
-    display: flex;  
-    font-family: "Roboto", sans-serif;
-    font-size: 24px;
-    font-weight: 700;
+    @include text-font($font-bold, 24px);
+    display: flex;
     padding-bottom: 20px;
   }
 
   &__text {
     display: flex;
-    font-family: "Roboto", sans-serif;
-    font-weight: 300;
-    font-size: 18px;
+    @include text-font($font-light, 18px);
     color: $paler-dark-color;
     padding-bottom: 35px;
   }
@@ -165,10 +138,93 @@ $font-bold: 700;
   }
 }
 
+.function {
+  @include homepage-section-style(white);
+  &__title {
+    @include text-font($font-bold, 24px);
+  }
+}
 
 
 
 
+
+.restaurants {
+  @include homepage-section-style($background-color-light);
+  padding-bottom: 66px;
+  padding-top: 56px;
+  @include flex-param(column, center, normal, 18px);
+
+  &__title{
+    @include text-font($font-bold, 24px);
+    padding-bottom: 23px;
+    padding-left: 3px;
+    align-self: self-start;
+  }
+
+  &__section {
+    @include flex-param (column, center, normal, 18px);
+  }
+}
+
+.restaurants-card {
+  @include flex-param(column, normal, normal, 0px);
+  width: 100%;
+  height: 251px;
+  border-radius: 15px;
+  background-color: white;
+  position: relative;
+
+  &__image {
+    width: 100%;
+    height: 174px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    object-fit: cover;
+
+    &--new{
+      position: absolute;
+      @include text-font($font-medium, 14px);
+      background-color: $accent-color;
+      color: $accent-font-color;
+      width: 80px;
+      height: 29px;
+      top: 17px;
+      right: 12px;
+      text-align: center;
+      vertical-align: center;
+      border-radius: 2px;
+      @include flex-center;
+    }
+  }
+
+  &__content {
+    @include flex-param(row, space-between, center, 0px);
+    width: 100%;
+    height: 77px;
+  }
+
+  &__text {
+    padding-left: 14px;
+  }
+
+  &__title {
+    @include text-font($font-bold, 18px);
+    padding-bottom: 5px;
+  }
+
+  &__location {
+    @include text-font($font-light, 17px);
+  }
+
+  &__fav {
+    padding-top: 7px;
+    padding-right: 24px;
+    width: 22px;
+    height: 21px;
+  }
+}
+// is the heart a link?
 
 
 .footer {
@@ -199,7 +255,7 @@ $font-bold: 700;
     .footer__icon{
         width: 12px;
         margin-right: 9px;
-      }
+    }
 
     &--medium {
       font-family: "Roboto", sans-serif;
@@ -215,59 +271,6 @@ $font-bold: 700;
   }
 }
   
-
-
-
-
-
-
-//function
-
-
-//restaurants
-
-.restaurants {
-  background-color: $background-color-light;
-  padding-bottom: 66px;
-  padding-top: 56px;
-  padding-right: 17px;
-  padding-left: 17px;
-  @include flex-center;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  .restaurants__title{
-    font-family: "Roboto", sans-serif;
-    font-weight: 700;
-    font-size: 24px;
-    padding-bottom: 23px;
-    padding-left: 3px; //not working
-    align-self: self-start; //not working either
-  }
-  .restaurants-section {
-    @include flex-center; //remove alignitemcenter to avoid the squish
-    flex-direction: column;
-    gap: 18px;
-    .restaurants-card {
-      @include flex-center; //this makes the image lower than the border! the justify content center is doing that
-      flex-direction: column;
-      width: 100%;
-      height: 251px;
-      border-radius: 15px;
-      background-color: white;
-      .restaurants-card__image {
-        width: 100%;
-        height: 174px;
-        border-top-left-radius: 15px;
-        border-top-right-radius: 15px;
-        object-fit: cover;
-
-        }
-    }
-  }
-}
-
-
 //see devtools for débordements/overflow in several places
 
 //reopen brief creatif and commit more regularly
