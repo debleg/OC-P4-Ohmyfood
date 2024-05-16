@@ -16,13 +16,14 @@ button {
 .header {
   padding-left: 17px;
   padding-right: 17px;
-  background-color: white;
+  background-color: transparent;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 0px;
   height: 63px;
+  filter: drop-shadow(rgba(0, 0, 0, 0.15) 0 2px 4px);
 }
 .header__goback {
   display: flex;
@@ -32,6 +33,9 @@ button {
   gap: 0px;
   height: 30px;
   width: 30px;
+}
+.header__goback--homepage {
+  display: none;
 }
 .header__logo {
   font-family: "Shrikhand", serif;
@@ -47,6 +51,7 @@ button {
   background-color: #EAEAEA;
   color: #353535;
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 17px;
@@ -74,7 +79,6 @@ button {
   justify-content: center;
   align-items: center;
   gap: 0px;
-  flex-direction: column;
   text-align: center;
 }
 .cta__title {
@@ -113,11 +117,77 @@ button {
   padding-left: 17px;
   padding-right: 17px;
   background-color: white;
+  padding-top: 52px;
+  padding-bottom: 67px;
+  display: flex;
+  flex-direction: column;
+  justify-content: normal;
+  align-items: normal;
+  gap: 25px;
 }
 .function__title {
   font-family: "Roboto", sans-serif;
   font-weight: 700;
   font-size: 24px;
+  height: 31px;
+  text-align: start;
+  vertical-align: top;
+}
+.function__steps {
+  display: flex;
+  flex-direction: column;
+  justify-content: normal;
+  align-items: center;
+  gap: 24px;
+  margin-left: 12px; /*offsets the number*/
+  margin-right: 3px;
+}
+
+.step {
+  display: flex;
+  flex-direction: row;
+  justify-content: normal;
+  align-items: center;
+  gap: 0px;
+  background-color: #F6F6F6;
+  border-radius: 20px;
+  filter: drop-shadow(rgba(0, 0, 0, 0.15) 0 4px 4px);
+  position: relative;
+  width: 100%;
+  height: 72.38px;
+}
+.step__number {
+  color: white;
+  background-color: #9356DC;
+  border-radius: 50%;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+  height: 24px;
+  width: 24px;
+  position: absolute;
+  left: -12px;
+}
+.step__icon {
+  color: #7E7E7E;
+  position: absolute;
+  left: 37px;
+  font-size: 17.5px;
+}
+.step__icon--focus {
+  color: #9356DC;
+}
+.step__text {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  position: absolute;
+  left: 75px;
 }
 
 .restaurants {
@@ -159,6 +229,7 @@ button {
   border-radius: 15px;
   background-color: white;
   position: relative;
+  filter: drop-shadow(rgba(0, 0, 0, 0.1) 0 4px 4px);
 }
 .restaurants-card__image {
   width: 100%;
@@ -179,12 +250,12 @@ button {
   height: 29px;
   top: 17px;
   right: 12px;
-  text-align: center;
-  vertical-align: center;
   border-radius: 2px;
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
+  gap: 0px;
 }
 .restaurants-card__content {
   display: flex;
