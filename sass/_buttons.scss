@@ -12,3 +12,10 @@ $button-width-order: 186px;
   filter: drop-shadow(rgba(0, 0, 0, 0.25) 0 4px 10px);
   color: white;
 }
+
+@mixin cta-button-hover($button-width) {
+  background: linear-gradient(lighten($secondary-color, 3), lighten($primary-color, 3));
+
+
+  filter: drop-shadow(rgba(0, 0, 0, 0.35) 0 4px 15px);
+}

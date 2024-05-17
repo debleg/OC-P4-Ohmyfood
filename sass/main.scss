@@ -51,9 +51,25 @@ $font-bold: 700;
 
   /*** ***/
 
+  //Note regarding animations
+// the button needs a transform
+//the loader: ohmy in logo font with dancing dots
+//find way to incorporate the colors as well
+//maybe not on the utensils
+//maybe logo with just border filled with black and the dancing dots in the gradient
+//dancing dots mirrored on both sides?
 
-  
+// look into custom checkboxes again, at least for the menu page?
 
+//put in its own file later?
+  .loader {
+    @include font-logo(42px);
+
+  }
+
+
+
+//
 .header {
   @include homepage-section-style(transparent);
   @include flex-param(row, center, center, 0px);
@@ -123,7 +139,10 @@ $font-bold: 700;
   }
 
   &__button {
-  @include cta-button($button-width-explore)
+  @include cta-button($button-width-explore);
+    &:hover{
+      @include cta-button-hover($button-width-explore);
+    }
   }
 }
 
@@ -261,10 +280,36 @@ $font-bold: 700;
     padding-right: 24px;
     width: 22px;
     height: 21px;
+    &--inactive {
+      opacity: 1;
+      &:hover {
+        opacity: 0;
+      }
+    }
+    &--active {
+      opacity: 0;
+        &:hover {
+        //animation: favorite 2s;
+          opacity: 1;
+          background-clip: content-box;
+          fill: red;
+    }
+    }
+
   }
 }
+
+
 // is the heart a link?
 
+@keyframes favorite {
+  0% { background-color: $primary-color;
+
+  }
+  100% {
+    background: linear-gradient($secondary-color, $primary-color);
+  }
+}
 
 .footer {
   background-color: $paler-dark-color;
