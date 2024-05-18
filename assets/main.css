@@ -15,7 +15,10 @@ button {
 /*** ***/
 .loader {
   font-family: "Shrikhand", serif;
-  font-size: 42px;
+  font-size: 20rem;
+  background-color: white;
+  width: 100%;
+  height: 100%;
 }
 
 .header {
@@ -116,10 +119,25 @@ button {
   background: linear-gradient(#FF79DA, #9356DC);
   filter: drop-shadow(rgba(0, 0, 0, 0.25) 0 4px 10px);
   color: white;
+  position: relative;
+  z-index: 1;
 }
-.cta__button:hover {
+.cta__button:hover::after {
+  opacity: 1;
+}
+.cta__button::after {
+  content: "";
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  border-radius: 25px;
   background: linear-gradient(#ff88de, #9b63df);
-  filter: drop-shadow(rgba(0, 0, 0, 0.35) 0 4px 15px);
+  filter: drop-shadow(rgba(0, 0, 0, 0.35) 0 4px 10px);
+  transition: opacity 200ms ease-in-out;
 }
 
 .function {
@@ -239,6 +257,59 @@ button {
   background-color: white;
   position: relative;
   filter: drop-shadow(rgba(0, 0, 0, 0.1) 0 4px 4px);
+  /*&__fav {
+    padding-top: 7px;
+    padding-right: 24px;
+    width: 22px;
+    height: 21px;
+    position: absolute;
+    &--inactive {
+      opacity: 1;//change this back to 1 when needed
+      z-index: 1;
+      position: relative;
+      top: 0;
+      left: 0;
+      //trying something here, remove later
+      color: transparent;
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: black;
+      &:hover {
+        opacity: 0;
+      }
+    }
+    &--active {
+      opacity: 0;
+      z-index: 2;
+      position: relative;
+      top: 0;
+      left: -27px;
+      color:white;
+        &:hover {
+        //animation: favorite 2s;
+          opacity: 1;
+          background-clip: content-box;
+          color: white;
+          // IMPORTANT MAKES BORDER
+
+          -webkit-text-stroke-width: 1px;
+          -webkit-text-stroke-color: black;
+          color:#9356DC;
+          //
+    }
+    }
+
+  } THIS!! Except with the right gradient, and combined with the built(in before
+    &inactive {
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: black;
+      background: -moz-linear-gradient(top, #e72c83 0%, #a742c6 100%);
+      background: -webkit-linear-gradient(top, #e72c83 0%, #a742c6 100%);
+      background: linear-gradient(to bottom, #e72c83 0%, #a742c6 100%);
+      -webkit-background-clip: text;
+      -moz-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }*/
 }
 .restaurants-card__image {
   width: 100%;
@@ -294,20 +365,6 @@ button {
   padding-right: 24px;
   width: 22px;
   height: 21px;
-}
-.restaurants-card__fav--inactive {
-  opacity: 1;
-}
-.restaurants-card__fav--inactive:hover {
-  opacity: 0;
-}
-.restaurants-card__fav--active {
-  opacity: 0;
-}
-.restaurants-card__fav--active:hover {
-  opacity: 1;
-  background-clip: content-box;
-  fill: red;
 }
 
 @keyframes favorite {

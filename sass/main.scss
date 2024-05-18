@@ -63,10 +63,17 @@ $font-bold: 700;
 
 //put in its own file later?
   .loader {
-    @include font-logo(42px);
-
+    @include font-logo(20rem);
+    background-color: white;
+    width: 100%;
+    height: 100%;
   }
-
+//one possibility, having ohmy fade in (or slide from left, with bounce?) and food fall from above, with a bit of bounce, letters separated or not
+//need to take colors into account, maybe around the text then fades? 'green for ohmy, gradient for food'
+//did like the 'fillint progressively with black-white gradient and black text border
+//fa has pen icons, sinc eit's for menus could that be animated?
+//calendar-check with same greens?
+//fa documentation has a page on animation but it's built(in classes
 
 
 //
@@ -141,7 +148,12 @@ $font-bold: 700;
   &__button {
   @include cta-button($button-width-explore);
     &:hover{
-      @include cta-button-hover($button-width-explore);
+      &::after {
+        opacity: 1;
+      }
+    }
+    &::after {
+      @include cta-button-hover-after($button-width-explore);
     }
   }
 }
@@ -275,27 +287,64 @@ $font-bold: 700;
     @include text-font($font-light, 17px);
   }
 
-  &__fav {
+  /*&__fav {
     padding-top: 7px;
     padding-right: 24px;
     width: 22px;
     height: 21px;
+    position: absolute;
     &--inactive {
-      opacity: 1;
+      opacity: 1;//change this back to 1 when needed
+      z-index: 1;
+      position: relative;
+      top: 0;
+      left: 0;
+      //trying something here, remove later
+      color: transparent;
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: black;
       &:hover {
         opacity: 0;
       }
     }
     &--active {
       opacity: 0;
+      z-index: 2;
+      position: relative;
+      top: 0;
+      left: -27px;
+      color:white;
         &:hover {
         //animation: favorite 2s;
           opacity: 1;
           background-clip: content-box;
-          fill: red;
+          color: white;
+          // IMPORTANT MAKES BORDER
+          
+          -webkit-text-stroke-width: 1px;
+          -webkit-text-stroke-color: black;
+          color:#9356DC;
+          //
     }
     }
 
+  } THIS!! Except with the right gradient, and combined with the built(in before
+    &inactive {
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: black;
+      background: -moz-linear-gradient(top, #e72c83 0%, #a742c6 100%);
+      background: -webkit-linear-gradient(top, #e72c83 0%, #a742c6 100%);
+      background: linear-gradient(to bottom, #e72c83 0%, #a742c6 100%);
+      -webkit-background-clip: text;
+      -moz-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }*/
+  &__fav { //recovered this from the previous git push
+    padding-top: 7px;
+    padding-right: 24px;
+    width: 22px;
+    height: 21px;
   }
 }
 
