@@ -150,6 +150,13 @@ $font-bold: 700;
     &:hover{
       &::after {
         opacity: 1;
+        transition: $button-transition;
+      }
+    }
+    &:not(:hover){
+      &::after {
+        opacity: 0;
+        transition: $button-transition;
       }
     }
     &::after {

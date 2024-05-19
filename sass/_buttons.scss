@@ -1,5 +1,6 @@
 $button-width-explore: 218px;
 $button-width-order: 186px;
+$button-transition: opacity 250ms ease-in-out;
 
 
 @mixin cta-button($button-width) {
@@ -25,7 +26,7 @@ $button-width-order: 186px;
   left: 0;
   z-index: -1;
   border-radius: 25px;
-  background: linear-gradient(lighten($secondary-color, 3), lighten($primary-color, 3));
+  background: linear-gradient(lighten($secondary-color, 4), lighten($primary-color, 4));
   filter: drop-shadow(rgba(0, 0, 0, 0.35) 0 4px 10px);
-  transition: opacity 200ms ease-in-out;
+  
 }
