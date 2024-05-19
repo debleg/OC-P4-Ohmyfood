@@ -12,15 +12,79 @@ button {
   border: none;
 }
 
-/*** ***/
 .loader {
-  font-family: "Shrikhand", serif;
-  font-size: 20rem;
-  background-color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
+  opacity: 1;
+  z-index: -1;
+  animation: loaderdisplay 3s forwards;
+}
+.loader__base {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  width: 100%;
+  height: 100%;
+  background-color: #F3F3F3;
+}
+.loader__welcome {
+  font-size: 2em;
+  font-family: Shrikhand;
+  opacity: 0;
+  animation: loaderwelcome 2.25s ease-in-out forwards;
+}
+.loader__welcome::before {
+  content: "Bienvenue chez";
+}
+.loader__logo {
+  font-size: 2em;
+  font-family: Shrikhand;
+  padding-bottom: 0.3em;
+  background: linear-gradient(-45deg, #FF79DA, #9356DC) 0 100%/0% 10px no-repeat;
+  border-radius: 10px;
+  animation: loadingline 2.25s ease-in-out forwards;
+}
+.loader__logo::before {
+  content: "ohmyfood";
 }
 
+@keyframes loaderwelcome {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes loadingline {
+  to {
+    background-size: 100% 10px;
+  }
+}
+@keyframes loaderdisplay {
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.homepage {
+  opacity: 0;
+  animation: homepagereveal 0s 3s forwards;
+}
+
+@keyframes homepagereveal {
+  100% {
+    opacity: 1;
+  }
+}
 .header {
   padding-left: 17px;
   padding-right: 17px;
