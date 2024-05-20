@@ -1,4 +1,4 @@
-@import './resets', './buttons', './loader', './fav';
+@import './resets', './buttons', './loader';
 
 $primary-color: #9356DC;
 $secondary-color: #FF79DA;
@@ -238,7 +238,7 @@ $font-bold: 700;
     border-top-right-radius: 15px;
     object-fit: cover;
 
-    &--new{
+    &--new {
       position: absolute;
       @include text-font($font-medium, 14px);
       background-color: $accent-color;
@@ -271,78 +271,46 @@ $font-bold: 700;
     @include text-font($font-light, 17px);
   }
 
-  /*&__fav {
-    padding-top: 7px;
-    padding-right: 24px;
-    width: 22px;
-    height: 21px;
-    position: absolute;
-    &--inactive {
-      opacity: 1;//change this back to 1 when needed
-      z-index: 1;
-      position: relative;
-      top: 0;
-      left: 0;
-      //trying something here, remove later
-      color: transparent;
-      -webkit-text-stroke-width: 1px;
-      -webkit-text-stroke-color: black;
-      &:hover {
-        opacity: 0;
-      }
-    }
-    &--active {
-      opacity: 0;
-      z-index: 2;
-      position: relative;
-      top: 0;
-      left: -27px;
-      color:white;
-        &:hover {
-        //animation: favorite 2s;
-          opacity: 1;
-          background-clip: content-box;
-          color: white;
-          // IMPORTANT MAKES BORDER
-          
-          -webkit-text-stroke-width: 1px;
-          -webkit-text-stroke-color: black;
-          color:#9356DC;
-          //
-    }
-    }
-
-  } THIS!! Except with the right gradient, and combined with the built(in before
-    &inactive {
-      -webkit-text-stroke-width: 1px;
-      -webkit-text-stroke-color: black;
-      background: -moz-linear-gradient(top, #e72c83 0%, #a742c6 100%);
-      background: -webkit-linear-gradient(top, #e72c83 0%, #a742c6 100%);
-      background: linear-gradient(to bottom, #e72c83 0%, #a742c6 100%);
-      -webkit-background-clip: text;
-      -moz-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }*/
-  &__fav { //recovered this from the previous git push
-    padding-top: 7px;
-    padding-right: 24px;
-    width: 22px;
-    height: 21px;
+  &__fav {
+    margin-right: 18px;
+    display: flex;
+    align-items: center;
   }
 }
 
 
-// is the heart a link?
 
-@keyframes favorite {
-  0% { background-color: $primary-color;
+.fav-button {
+  @include fav-button;
 
+  &:hover {
+    -webkit-text-stroke: transparent;
+    color: transparent;
   }
-  100% {
-    background: linear-gradient($secondary-color, $primary-color);
+  &:not(:hover) {
+    transition: $fav-remove-border;
+  }
+
+  &::after {
+    @include fav-button-after;
+  }
+
+  &:hover {
+    &::after{
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  &:not(:hover){
+    ::after{
+      transition: $fav-color-in;
+    }
   }
 }
+
+
+
+
 
 .footer {
   background-color: $paler-dark-color;

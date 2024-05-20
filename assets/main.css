@@ -325,59 +325,6 @@ button {
   background-color: white;
   position: relative;
   filter: drop-shadow(rgba(0, 0, 0, 0.1) 0 4px 4px);
-  /*&__fav {
-    padding-top: 7px;
-    padding-right: 24px;
-    width: 22px;
-    height: 21px;
-    position: absolute;
-    &--inactive {
-      opacity: 1;//change this back to 1 when needed
-      z-index: 1;
-      position: relative;
-      top: 0;
-      left: 0;
-      //trying something here, remove later
-      color: transparent;
-      -webkit-text-stroke-width: 1px;
-      -webkit-text-stroke-color: black;
-      &:hover {
-        opacity: 0;
-      }
-    }
-    &--active {
-      opacity: 0;
-      z-index: 2;
-      position: relative;
-      top: 0;
-      left: -27px;
-      color:white;
-        &:hover {
-        //animation: favorite 2s;
-          opacity: 1;
-          background-clip: content-box;
-          color: white;
-          // IMPORTANT MAKES BORDER
-
-          -webkit-text-stroke-width: 1px;
-          -webkit-text-stroke-color: black;
-          color:#9356DC;
-          //
-    }
-    }
-
-  } THIS!! Except with the right gradient, and combined with the built(in before
-    &inactive {
-      -webkit-text-stroke-width: 1px;
-      -webkit-text-stroke-color: black;
-      background: -moz-linear-gradient(top, #e72c83 0%, #a742c6 100%);
-      background: -webkit-linear-gradient(top, #e72c83 0%, #a742c6 100%);
-      background: linear-gradient(to bottom, #e72c83 0%, #a742c6 100%);
-      -webkit-background-clip: text;
-      -moz-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }*/
 }
 .restaurants-card__image {
   width: 100%;
@@ -429,20 +376,54 @@ button {
   font-size: 17px;
 }
 .restaurants-card__fav {
-  padding-top: 7px;
-  padding-right: 24px;
-  width: 22px;
-  height: 21px;
+  margin-right: 18px;
+  display: flex;
+  align-items: center;
 }
 
-@keyframes favorite {
-  0% {
-    background-color: #9356DC;
-  }
-  100% {
-    background: linear-gradient(#FF79DA, #9356DC);
-  }
+.fav-button {
+  padding-top: 10px;
+  width: 25px;
+  height: 21px;
+  -webkit-text-stroke: black 1px;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  z-index: 1;
+  transition: -webkit-text-stroke 300ms ease-in-out, color 300ms ease-in-out;
 }
+.fav-button:hover {
+  -webkit-text-stroke: transparent;
+  color: transparent;
+}
+.fav-button:not(:hover) {
+  transition: -webkit-text-stroke 300ms ease-in-out, color 300ms ease-in-out;
+}
+.fav-button::after {
+  content: "\f004";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  background: linear-gradient(#FF79DA, #9356DC);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+  transform: scale(0);
+  opacity: 0;
+  padding-right: 22px;
+  padding-top: 10px;
+  transition: transform 300ms ease-in-out, opacity 300ms ease-in-out;
+}
+.fav-button:hover::after {
+  transform: scale(1);
+  opacity: 1;
+}
+.fav-button:not(:hover) ::after {
+  transition: transform 300ms ease-in-out, opacity 300ms ease-in-out;
+}
+
 .footer {
   background-color: #353535;
   color: white;
