@@ -12,7 +12,79 @@ button {
   border: none;
 }
 
-/*** ***/
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  z-index: -1;
+  animation: loaderdisplay 3s forwards;
+}
+.loader__base {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  width: 100%;
+  height: 100%;
+  background-color: #F3F3F3;
+}
+.loader__welcome {
+  font-size: 2em;
+  font-family: Shrikhand;
+  opacity: 0;
+  animation: loaderwelcome 2.25s ease-in-out forwards;
+}
+.loader__welcome::before {
+  content: "Bienvenue chez";
+}
+.loader__logo {
+  font-size: 2em;
+  font-family: Shrikhand;
+  padding-bottom: 0.3em;
+  background: linear-gradient(-45deg, #FF79DA, #9356DC) 0 100%/0% 10px no-repeat;
+  border-radius: 10px;
+  animation: loadingline 2.25s ease-in-out forwards;
+}
+.loader__logo::before {
+  content: "ohmyfood";
+}
+
+@keyframes loaderwelcome {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes loadingline {
+  to {
+    background-size: 100% 10px;
+  }
+}
+@keyframes loaderdisplay {
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.homepage {
+  opacity: 0;
+  animation: homepagereveal 0s 3s forwards;
+}
+
+@keyframes homepagereveal {
+  100% {
+    opacity: 1;
+  }
+}
 .header {
   padding-left: 17px;
   padding-right: 17px;
@@ -111,6 +183,29 @@ button {
   background: linear-gradient(#FF79DA, #9356DC);
   filter: drop-shadow(rgba(0, 0, 0, 0.25) 0 4px 10px);
   color: white;
+  position: relative;
+  z-index: 1;
+}
+.cta__button:hover::after {
+  opacity: 1;
+  transition: opacity 250ms ease-in-out;
+}
+.cta__button:not(:hover)::after {
+  opacity: 0;
+  transition: opacity 250ms ease-in-out;
+}
+.cta__button::after {
+  content: "";
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  border-radius: 25px;
+  background: linear-gradient(#ff8de0, #9e67e0);
+  filter: drop-shadow(rgba(0, 0, 0, 0.35) 0 4px 10px);
 }
 
 .function {
@@ -281,10 +376,52 @@ button {
   font-size: 17px;
 }
 .restaurants-card__fav {
-  padding-top: 7px;
-  padding-right: 24px;
-  width: 22px;
+  margin-right: 18px;
+  display: flex;
+  align-items: center;
+}
+
+.fav-button {
+  padding-top: 10px;
+  width: 25px;
   height: 21px;
+  -webkit-text-stroke: black 1px;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  z-index: 1;
+  transition: -webkit-text-stroke 300ms ease-in-out, color 300ms ease-in-out;
+}
+.fav-button:hover {
+  -webkit-text-stroke: transparent;
+  color: transparent;
+}
+.fav-button:not(:hover) {
+  transition: -webkit-text-stroke 300ms ease-in-out, color 300ms ease-in-out;
+}
+.fav-button::after {
+  content: "\f004";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  background: linear-gradient(#FF79DA, #9356DC);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+  transform: scale(0);
+  opacity: 0;
+  padding-right: 22px;
+  padding-top: 10px;
+  transition: transform 300ms ease-in-out, opacity 300ms ease-in-out;
+}
+.fav-button:hover::after {
+  transform: scale(1);
+  opacity: 1;
+}
+.fav-button:not(:hover) ::after {
+  transition: transform 300ms ease-in-out, opacity 300ms ease-in-out;
 }
 
 .footer {

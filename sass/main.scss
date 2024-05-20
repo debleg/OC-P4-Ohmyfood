@@ -1,4 +1,4 @@
-@import './resets', './buttons';
+@import './resets', './buttons', './loader';
 
 $primary-color: #9356DC;
 $secondary-color: #FF79DA;
@@ -6,9 +6,13 @@ $accent-color: #99E2D0;
 $accent-font-color: #008766;
 $background-color-light:#F3F3F3;
 $paler-dark-color: #353535;
+//both location font color and footer background
 
-//no?? that's the location font color
-// no again it's the footer
+
+  //Note regarding animations
+// look into custom checkboxes again, at least for the menu page?
+
+//To-do: Loader with existing mixins for flex and font and variables
 
 //drop shadows show up as error and without the a on the validator?
 
@@ -49,10 +53,6 @@ $font-bold: 700;
 }
 
 
-  /*** ***/
-
-
-  
 
 .header {
   @include homepage-section-style(transparent);
@@ -123,7 +123,22 @@ $font-bold: 700;
   }
 
   &__button {
-  @include cta-button($button-width-explore)
+  @include cta-button($button-width-explore);
+    &:hover{
+      &::after {
+        opacity: 1;
+        transition: $button-transition;
+      }
+    }
+    &:not(:hover){
+      &::after {
+        opacity: 0;
+        transition: $button-transition;
+      }
+    }
+    &::after {
+      @include cta-button-hover-after($button-width-explore);
+    }
   }
 }
 
@@ -223,7 +238,7 @@ $font-bold: 700;
     border-top-right-radius: 15px;
     object-fit: cover;
 
-    &--new{
+    &--new {
       position: absolute;
       @include text-font($font-medium, 14px);
       background-color: $accent-color;
@@ -257,13 +272,44 @@ $font-bold: 700;
   }
 
   &__fav {
-    padding-top: 7px;
-    padding-right: 24px;
-    width: 22px;
-    height: 21px;
+    margin-right: 18px;
+    display: flex;
+    align-items: center;
   }
 }
-// is the heart a link?
+
+
+
+.fav-button {
+  @include fav-button;
+
+  &:hover {
+    -webkit-text-stroke: transparent;
+    color: transparent;
+  }
+  &:not(:hover) {
+    transition: $fav-remove-border;
+  }
+
+  &::after {
+    @include fav-button-after;
+  }
+
+  &:hover {
+    &::after{
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  &:not(:hover){
+    ::after{
+      transition: $fav-color-in;
+    }
+  }
+}
+
+
+
 
 
 .footer {
