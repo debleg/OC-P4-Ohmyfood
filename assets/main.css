@@ -88,7 +88,7 @@ button {
 .header {
   padding-left: 17px;
   padding-right: 17px;
-  background-color: transparent;
+  background-color: white;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -96,6 +96,8 @@ button {
   gap: 0px;
   height: 63px;
   filter: drop-shadow(rgba(0, 0, 0, 0.15) 0 2px 4px);
+  position: relative;
+  z-index: 2;
 }
 .header__goback {
   display: flex;
@@ -105,6 +107,8 @@ button {
   gap: 0px;
   height: 30px;
   width: 30px;
+  position: absolute;
+  left: 17px;
 }
 .header__goback--homepage {
   display: none;
@@ -115,7 +119,6 @@ button {
   text-align: center;
   height: 36px;
   padding: 0 17.5px;
-  flex-grow: 1;
 }
 
 .location {
@@ -188,7 +191,6 @@ button {
 }
 .cta__button:hover::after {
   opacity: 1;
-  transition: opacity 250ms ease-in-out;
 }
 .cta__button:not(:hover)::after {
   opacity: 0;
@@ -206,6 +208,7 @@ button {
   border-radius: 25px;
   background: linear-gradient(#ff8de0, #9e67e0);
   filter: drop-shadow(rgba(0, 0, 0, 0.35) 0 4px 10px);
+  transition: opacity 250ms ease-in-out;
 }
 
 .function {
