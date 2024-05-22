@@ -267,6 +267,12 @@ body {
   gap: 18px;
   text-align: center;
 }
+@media screen and (min-width: 600px) {
+  .cta {
+    padding-left: 4vw;
+    padding-right: 4vw;
+  }
+}
 @media screen and (min-width: 992px) {
   .cta {
     padding-top: 30px;
@@ -354,6 +360,12 @@ body {
   align-items: normal;
   gap: 25px;
 }
+@media screen and (min-width: 600px) {
+  .function {
+    padding-left: 4vw;
+    padding-right: 4vw;
+  }
+}
 @media screen and (min-width: 992px) {
   .function {
     padding-left: 8vw;
@@ -372,8 +384,8 @@ body {
   font-size: 24px;
   height: 31px;
 }
-@media screen and (600px <= width < 992px) {
-  .function {
+@media screen and (min-width: 600px) and (max-width: 992px) {
+  .function__title {
     margin: auto;
   }
 }
