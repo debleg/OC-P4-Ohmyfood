@@ -59,7 +59,7 @@
         };
     }
     @if $breakpoint == middlestep { //handles the function title
-        @media screen and (600px <= width < 992px) {
+        @media screen and (min-width: 600px) and (max-width: 992px)  {
             @content
         };
     }

@@ -47,6 +47,10 @@ body {
   padding-bottom: 57px;
   @include flex-param(column, center, center, 18px);
   text-align: center;
+  @include responsive (intermediate) {
+    padding-left: 4vw;
+    padding-right: 4vw;
+  }
   @include responsive (large) {
     padding-top: 30px;
     padding-bottom: 30px;
@@ -100,6 +104,10 @@ body {
   padding-top: 52px;
   padding-bottom: 67px;
   @include flex-param(column, normal, normal, 25px);
+  @include responsive (intermediate) {
+    padding-left: 4vw;
+    padding-right: 4vw;
+  }
   @include responsive (large) {
     padding-left: 8vw;
     padding-right: 8vw;
@@ -112,9 +120,9 @@ body {
   &__title {
     @include text-font($font-bold, 24px);
     height: 31px;
-  }
-  @include responsive (middlestep) {
-    margin: auto;
+    @include responsive (middlestep) {
+      margin: auto;
+    } 
   }
 
   &__steps {
