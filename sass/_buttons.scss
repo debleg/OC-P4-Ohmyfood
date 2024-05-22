@@ -1,4 +1,6 @@
-///cta button
+//add text-align: center somewhere, already on parent element on the homepage
+
+//******cta button******//
 
 $button-width-explore: 218px;
 $button-width-order: 186px;
@@ -30,10 +32,10 @@ $button-transition: opacity 250ms ease-in-out;
   border-radius: 25px;
   background: linear-gradient(lighten($secondary-color, 4), lighten($primary-color, 4));
   filter: drop-shadow(rgba(0, 0, 0, 0.35) 0 4px 10px);
-  
+  transition: $button-transition;
 }
 
-///fav button
+//******fav button******//
 
 $fav-remove-border: -webkit-text-stroke 300ms ease-in-out, color 300ms ease-in-out;
 $fav-color-in: transform 300ms ease-in-out, opacity 300ms ease-in-out;
@@ -62,8 +64,37 @@ $fav-color-in: transform 300ms ease-in-out, opacity 300ms ease-in-out;
   background-clip: text;
   color: transparent;
   transform: scale(0);
-  opacity:0;
-  padding-right:22px;
-  padding-top:10px;
+  opacity: 0;
+  padding-right: 22px;
+  padding-top: 10px;
   transition: $fav-color-in;
+}
+
+
+.fav-button {
+  @include fav-button;
+
+  &:hover {
+    -webkit-text-stroke: transparent;
+    color: transparent;
+  }
+  &:not(:hover) {
+    transition: $fav-remove-border;
+  }
+
+  &::after {
+    @include fav-button-after;
+  }
+
+  &:hover {
+    &::after{
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  &:not(:hover){
+    ::after{
+      transition: $fav-color-in;
+    }
+  }
 }
