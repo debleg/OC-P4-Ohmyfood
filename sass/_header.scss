@@ -5,6 +5,9 @@
     filter: drop-shadow(rgba(0, 0, 0, 0.15) 0 2px 4px);
     position: relative;
     z-index: 2;
+    @include responsive (large) {
+        height: 96px;
+    }
   
     &__goback {
      @include flex-param(row, center, center, 0px); 
@@ -12,6 +15,7 @@
       width: 30px;
       position: absolute;
       left: 17px;
+      
       &--homepage {
         display: none;
       }
@@ -21,6 +25,8 @@
       @include font-logo(30px);
       text-align: center;
       height: 36px;
-      padding: 0 17.5px;
+      @include responsive (large) {
+        height: 50px;
+      }
     }
   }

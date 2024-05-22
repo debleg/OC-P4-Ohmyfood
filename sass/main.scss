@@ -9,14 +9,14 @@
 
 
 
-//Notes
-//look into custom checkboxes again, at least for the menu page?
 
 //Warning
 //drop shadows show up as error and without the a on the validator?
+//appear on mockup inspection but don't show on desktop?
 
-
-
+body {
+  min-width: 320px;
+}
 
 
 .location {
@@ -25,7 +25,7 @@
   color: $paler-dark-color;
   @include flex-param(row, center, center, 17px);
   filter: drop-shadow(rgba(0, 0, 0, 0.25) 0 4px 4px);
-  //above disappears on desktop
+  //above disappears on desktop??
 
   &__icon {
   width: 12px;
@@ -43,22 +43,36 @@
 
 .cta {
   @include homepage-section-style($background-color-light);
-  padding-top: 39px; //not sure, calculations
-  padding-bottom: 57px; //idem
-  @include flex-param(column, center, center, 0px);
+  padding-top: 39px;
+  padding-bottom: 57px;
+  @include flex-param(column, center, center, 18px);
   text-align: center;
+  @include responsive (large) {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 8vw;
+    padding-right: 8vw;
+  }
+  @include responsive (largest) {
+    padding-left: 12.5vw;
+    padding-right: 12.5vw;
+  }
 
   &__title {
     @include text-font($font-bold, 24px);
     display: flex;
-    padding-bottom: 20px;
+    @include responsive (large) {
+      font-size: 2.77vw;
+    }
   }
 
   &__text {
     display: flex;
     @include text-font($font-light, 18px);
     color: $paler-dark-color;
-    padding-bottom: 35px;
+    min-height: 41px;
+    max-height: 46px;
+    align-items: center;
   }
 
   &__button {
@@ -86,17 +100,30 @@
   padding-top: 52px;
   padding-bottom: 67px;
   @include flex-param(column, normal, normal, 25px);
+  @include responsive (large) {
+    padding-left: 8vw;
+    padding-right: 8vw;
+  }
+  @include responsive (largest) {
+    padding-left: 12.5vw;
+    padding-right: 12.5vw;
+  }
 
   &__title {
     @include text-font($font-bold, 24px);
     height: 31px;
-    text-align: start;
-    vertical-align: top;
   }
+  @include responsive (middlestep) {
+    margin: auto;
+  }
+
   &__steps {
     @include flex-param(column, normal, center, 24px);
     margin-left: 12px; /*offsets the number*/
     margin-right: 3px;
+    @include responsive (large) {
+      flex-direction: row;
+    }
   }
 
 }
@@ -109,6 +136,7 @@
     position: relative;
     width: 100%;
     height: 72.38px;
+    max-width: 335px;
 
   &__number {
     color: white;
@@ -132,6 +160,7 @@
       color: $primary-color;
     }
   }
+
   &__text {
     @include text-font($font-medium, 16px);
     position: absolute;
@@ -147,17 +176,50 @@
   @include homepage-section-style($background-color-light);
   padding-bottom: 66px;
   padding-top: 56px;
-  @include flex-param(column, center, normal, 18px);
+  @include flex-param(column, center, normal, 23px);
+  @include responsive (intermediate) {
+    padding-left: 4vw;
+    padding-right: 4vw;
+  }
+  @include responsive (large) {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 8vw;
+    padding-right: 8vw;
+  }
+
+  @include responsive (largest) {
+    padding-left: 12.5vw;
+    padding-right: 12.5vw;
+  }
 
   &__title{
     @include text-font($font-bold, 24px);
-    padding-bottom: 23px;
     padding-left: 3px;
     align-self: self-start;
   }
 
+  &__sections {
+    @include flex-param (column, center, normal, 18px);
+    @include responsive (large) {
+      gap: 40px;
+    }
+    @include responsive (largest) {
+      gap: 50px;
+    }
+  }
+  
   &__section {
     @include flex-param (column, center, normal, 18px);
+    @include responsive (medium) {
+      flex-direction: row;
+    }
+    @include responsive (large) {
+      gap: 50px;
+    }
+    @include responsive (largest) {
+      gap: 100px;
+    }
   }
 }
 

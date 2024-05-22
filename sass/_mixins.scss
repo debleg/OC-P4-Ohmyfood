@@ -35,4 +35,32 @@
 }
 
 
+// responsive (move later)
 
+@mixin responsive($breakpoint) {
+    @if $breakpoint == intermediate {
+        @media screen and (min-width: 600px) {
+            @content
+        };
+    }
+    @if $breakpoint == medium {
+        @media screen and (min-width: 768px) {
+            @content
+        };
+    }
+    @if $breakpoint == large {
+        @media screen and (min-width: 992px) {
+            @content
+        };
+    }
+    @if $breakpoint == largest {
+        @media screen and (min-width: 1200px) {
+            @content
+        };
+    }
+    @if $breakpoint == middlestep { //handles the function title
+        @media screen and (600px <= width < 992px) {
+            @content
+        };
+    }
+}

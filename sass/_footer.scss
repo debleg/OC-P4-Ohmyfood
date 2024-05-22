@@ -6,6 +6,12 @@
     padding: 22px 25px;
     display: flex;
     flex-direction: column;
+    @include responsive (large) {
+        height: 54px;
+        padding: 30px 25px;
+        flex-direction: row-reverse;
+        align-items: flex-end;
+    }
   
     &__logo {
       @include font-logo(18px);
@@ -14,13 +20,21 @@
       width: 137px;
       height: 27px;
       margin-bottom: 16px;
+      @include responsive (large) {
+        margin-bottom: 0px;
+        margin-left: 16px;
+      }
     }
   
     &__nav,
     &__navsection {
         @include flex-param (column, normal, normal, 7px);
-  
+        @include responsive (large) {
+            flex-direction: row;
+            padding-right: 40px;
+        }
     }
+    
     &__link {
       .footer__icon{
           width: 12px;

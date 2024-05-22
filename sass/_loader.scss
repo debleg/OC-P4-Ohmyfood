@@ -20,7 +20,8 @@
         height: 100%;
         background-color: #F3F3F3;
     }
-    &__welcome{
+
+    &__welcome {
         @include font-logo (2em);
         opacity: 0;
         animation: loaderwelcome 2.25s ease-in-out forwards;
@@ -29,6 +30,7 @@
             content: "Bienvenue chez"
         }
     }
+
     &__logo {
         @include font-logo (2em);
         padding-bottom: 0.3em;
@@ -62,7 +64,7 @@
 
 @keyframes loaderdisplay {
     90% {
-        opacity:1
+        opacity: 1
     }
     100% {
         opacity: 0;

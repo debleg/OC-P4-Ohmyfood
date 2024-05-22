@@ -64,9 +64,9 @@ $fav-color-in: transform 300ms ease-in-out, opacity 300ms ease-in-out;
   background-clip: text;
   color: transparent;
   transform: scale(0);
-  opacity:0;
-  padding-right:22px;
-  padding-top:10px;
+  opacity: 0;
+  padding-right: 22px;
+  padding-top: 10px;
   transition: $fav-color-in;
 }
 
