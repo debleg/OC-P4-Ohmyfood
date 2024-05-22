@@ -1,0 +1,26 @@
+.header {
+    @include homepage-section-style(white);
+    @include flex-param(row, center, center, 0px);
+    height: 63px;
+    filter: drop-shadow(rgba(0, 0, 0, 0.15) 0 2px 4px);
+    position: relative;
+    z-index: 2;
+  
+    &__goback {
+     @include flex-param(row, center, center, 0px); 
+      height: 30px;
+      width: 30px;
+      position: absolute;
+      left: 17px;
+      &--homepage {
+        display: none;
+      }
+    }
+  
+    &__logo {
+      @include font-logo(30px);
+      text-align: center;
+      height: 36px;
+      padding: 0 17.5px;
+    }
+  }

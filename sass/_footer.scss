@@ -1,0 +1,39 @@
+
+.footer {
+    background-color: $paler-dark-color;
+    color: white;
+    height: 142px;
+    padding: 22px 25px;
+    display: flex;
+    flex-direction: column;
+  
+    &__logo {
+      @include font-logo(18px);
+      text-align: left;
+      vertical-align: text-top;
+      width: 137px;
+      height: 27px;
+      margin-bottom: 16px;
+    }
+  
+    &__nav,
+    &__navsection {
+        @include flex-param (column, normal, normal, 7px);
+  
+    }
+    &__link {
+      .footer__icon{
+          width: 12px;
+          margin-right: 9px;
+      }
+  
+      &--medium {
+        @include text-font ($font-medium, 16px);
+      }
+  
+      &--regular {
+        @include text-font ($font-regular, 16px);
+      }
+    }
+  }
+  

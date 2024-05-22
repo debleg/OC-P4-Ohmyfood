@@ -21,8 +21,7 @@
         background-color: #F3F3F3;
     }
     &__welcome{
-        font-size: 2em;
-        font-family: Shrikhand;
+        @include font-logo (2em);
         opacity: 0;
         animation: loaderwelcome 2.25s ease-in-out forwards;
 
@@ -30,11 +29,10 @@
             content: "Bienvenue chez"
         }
     }
-    &__logo{
-        font-size: 2em;
-        font-family: Shrikhand;
+    &__logo {
+        @include font-logo (2em);
         padding-bottom: 0.3em;
-        background: linear-gradient(-45deg, #FF79DA,#9356DC) 0 100%/0% 10px no-repeat;
+        background: linear-gradient(-45deg, $secondary-color,$primary-color) 0 100%/0% 10px no-repeat;
         border-radius: 10px;
         animation: loadingline 2.25s ease-in-out forwards;
 
