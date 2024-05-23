@@ -642,6 +642,14 @@ body {
   color: #101010;
 }
 
+@keyframes slidingcourses {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
 .course {
   display: flex;
   flex-direction: column;
@@ -650,12 +658,22 @@ body {
   gap: 12px;
   padding-left: 13px;
   padding-right: 13px;
+  animation: slidingcourses 2s ease-in-out backwards;
+}
+.course__section--anim1 {
+  animation-delay: 1s;
+}
+.course__section--anim2 {
+  animation-delay: 2s;
+}
+.course__section--anim3 {
+  animation-delay: 3s;
 }
 .course__title {
   font-family: "Roboto", sans-serif;
   font-weight: 300;
   font-size: 16px;
-  height: 27px;
+  height: 24px;
   text-transform: uppercase;
   background: linear-gradient(#99E2D0, #99E2D0) left bottom/40px 3px no-repeat;
 }
@@ -683,11 +701,13 @@ body {
   font-family: "Roboto", sans-serif;
   font-weight: 500;
   font-size: 18px;
+  text-overflow: ellipsis;
 }
 .dish__desc {
   font-family: "Roboto", sans-serif;
   font-weight: 300;
   font-size: 15px;
+  text-overflow: ellipsis;
 }
 .dish__price {
   font-family: "Roboto", sans-serif;

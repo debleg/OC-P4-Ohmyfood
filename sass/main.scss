@@ -53,18 +53,56 @@ body {
 }
 
 
+// slide in courses 
+@keyframes slidingcourses {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@mixin slidingcourses($coursenumber) {
+  @if $coursenumber == "first" {
+    animation-delay: 1s;
+  }
+  @if $coursenumber == "second" {
+    animation-delay: 2s;
+  }
+  @if $coursenumber == "third" {
+    animation-delay: 3s;
+  }
+}
+
+
 .course {
   @include flex-param (column, normal, normal, 12px);
   padding-left: 13px;
   padding-right: 13px;
+  animation: slidingcourses 2s ease-in-out backwards;
+  &__section--anim1 {
+    @include slidingcourses(first);
+  }
+  &__section--anim2 {
+    @include slidingcourses(second);
+  }
+  &__section--anim3 {
+    @include slidingcourses(third);
+  }
+
+
   &__title {
     @include text-font ($font-light, 16px);
-    height: 27px; //remove border and padding when calculated
+    height: 24px;
     text-transform: uppercase;
-    //border-bottom: 3px $accent-color solid; //needs to be reduced to the left
     background: linear-gradient($accent-color, $accent-color) left bottom/40px 3px no-repeat;
   }
 }
+
+
+
+
 
 .dish {
   @include flex-param (row, space-between, flex-end, 0px);
@@ -79,9 +117,11 @@ body {
   }
   &__title {
     @include text-font ($font-medium, 18px);
+    text-overflow: ellipsis;
   }
   &__desc {
     @include text-font ($font-light, 15px);
+    text-overflow: ellipsis;
   }
   &__price {
     @include text-font ($font-bold, 15px);
@@ -89,8 +129,13 @@ body {
   }
 }
 
-.order { //contains the button, include later
+.order {
   @include flex-param (column, center, center, 0px);
   text-align: center;
   padding-bottom: 40px;
 }
+
+
+// dish check
+
+
