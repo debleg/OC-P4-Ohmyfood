@@ -14,7 +14,7 @@ $button-transition: opacity 250ms ease-in-out;
   height: 50px;
   border-radius: 25px;
   background: linear-gradient($secondary-color, $primary-color);
-  filter: drop-shadow(rgba(0, 0, 0, 0.25) 0 4px 10px);
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.25));
   color: white;
   position: relative;
   z-index: 1;
@@ -31,9 +31,33 @@ $button-transition: opacity 250ms ease-in-out;
   z-index: -1;
   border-radius: 25px;
   background: linear-gradient(lighten($secondary-color, 4), lighten($primary-color, 4));
-  filter: drop-shadow(rgba(0, 0, 0, 0.35) 0 4px 10px);
+  filter: drop-shadow( 0 4px 10px rgba(0, 0, 0, 0.35));
   transition: $button-transition;
 }
+
+
+.cta__button {
+  @include cta-button($button-width-explore);
+      &:hover{
+      &::after {
+          opacity: 1;
+
+      }
+      }
+      &:not(:hover){
+      &::after {
+          opacity: 0;
+          transition: $button-transition;
+      }
+      }
+      &::after {
+      @include cta-button-hover-after($button-width-explore);
+      }
+  }
+
+
+
+
 
 //******fav button******//
 
