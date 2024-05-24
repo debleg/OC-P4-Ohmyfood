@@ -14,6 +14,11 @@ body {
   min-width: 320px;
 }
 
+///to-do
+/// responsive for this menu page
+/// create other menu pages and apply the right imgs and text
+/// review code thoroughly and reconsider partials/folders (maybe mixins)
+/// note/reproduce the steps taken to animate each (see logic notes taken throughout)
 
 
 //menu page
@@ -105,7 +110,7 @@ body {
 
 
 .dish {
-  @include flex-param (row, space-between, flex-end, 0px);
+  @include flex-param (row, space-between, flex-end, 5px);
   border-radius: 15px;
   background-color: white;
   padding: 15px;
@@ -139,3 +144,81 @@ body {
 // dish check
 
 
+.dish {
+  overflow: hidden;
+  position: relative;
+}
+
+.dish:hover > .dish__price {
+  animation: slidepriceyes 1s ease-in-out forwards;
+}
+
+.dish:not(:hover) > .dish__price {
+  animation: slidepriceno 1s ease-in-out forwards;
+}
+
+.dish::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 22px;
+  content:"\f058";
+  
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 59px;
+  @include flex-param (row, center, center, 0px);
+  opacity: 0;
+  background-color: $accent-color;
+  color: white;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  animation: slidecheckyes 1s ease-in-out;
+}
+
+
+.dish:hover::after {
+  opacity: 1;
+
+}
+
+.dish:not(:hover)::after {
+  animation: opacity 0s 1s ease-in-out, slidecheckno 1s ease-in-out; 
+}
+
+@keyframes slidecheckyes {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes slidecheckno {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(100%);
+  }
+}
+
+@keyframes slidepriceyes {
+  // from {
+  //   transform: translateX(0);
+  // }
+  to {
+    transform: translateX(-59px);
+  }
+}
+@keyframes slidepriceno {
+  from {
+    transform: translateX(-59px);
+}
+  to {
+    transform: translateX (0);
+    }
+}

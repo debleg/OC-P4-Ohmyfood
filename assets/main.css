@@ -194,7 +194,6 @@ a {
   font-family: "Roboto", sans-serif;
   font-weight: 500;
   font-size: 16px;
-  width: 218px;
   height: 50px;
   border-radius: 25px;
   background: linear-gradient(#FF79DA, #9356DC);
@@ -202,6 +201,12 @@ a {
   color: white;
   position: relative;
   z-index: 1;
+}
+.cta__button--explore {
+  width: 218px;
+}
+.cta__button--order {
+  width: 186px;
 }
 .cta__button:hover::after {
   opacity: 1;
@@ -683,7 +688,7 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-end;
-  gap: 0px;
+  gap: 5px;
   border-radius: 15px;
   background-color: white;
   padding: 15px;
@@ -723,4 +728,80 @@ body {
   gap: 0px;
   text-align: center;
   padding-bottom: 40px;
+}
+
+.dish {
+  overflow: hidden;
+  position: relative;
+}
+
+.dish:hover > .dish__price {
+  animation: slidepriceyes 1s ease-in-out forwards;
+}
+
+.dish:not(:hover) > .dish__price {
+  animation: slidepriceno 1s ease-in-out forwards;
+}
+
+.dish::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 22px;
+  content: "\f058";
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 59px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+  opacity: 0;
+  background-color: #99E2D0;
+  color: white;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  animation: slidecheckyes 1s ease-in-out;
+}
+
+.dish:hover::after {
+  opacity: 1;
+}
+
+.dish:not(:hover)::after {
+  animation: opacity 0s 1s ease-in-out, slidecheckno 1s ease-in-out;
+}
+
+@keyframes slidecheckyes {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes slidecheckno {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(100%);
+  }
+}
+@keyframes slidepriceyes {
+  to {
+    transform: translateX(-59px);
+  }
+}
+@keyframes slidepriceno {
+  from {
+    transform: translateX(-59px);
+  }
+  to {
+    transform: translateX 0;
+  }
 }/*# sourceMappingURL=main.css.map */

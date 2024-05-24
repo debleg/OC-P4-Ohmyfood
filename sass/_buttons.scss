@@ -7,10 +7,9 @@ $button-width-order: 186px;
 $button-transition: opacity 250ms ease-in-out;
 
 
-@mixin cta-button($button-width) {
+@mixin cta-button {
   @include flex-param (row, center, center, 0px);
   @include text-font ($font-medium, 16px);
-  width: $button-width;
   height: 50px;
   border-radius: 25px;
   background: linear-gradient($secondary-color, $primary-color);
@@ -20,7 +19,7 @@ $button-transition: opacity 250ms ease-in-out;
   z-index: 1;
 }
 
-@mixin cta-button-hover-after($button-width) {
+@mixin cta-button-hover-after {
   content: "";
   opacity: 0;
   position: absolute;
@@ -37,22 +36,28 @@ $button-transition: opacity 250ms ease-in-out;
 
 
 .cta__button {
-  @include cta-button($button-width-explore);
-      &:hover{
-      &::after {
-          opacity: 1;
+  @include cta-button;
+  &--explore {
+    width: $button-width-explore;
+  }
+  &--order {
+    width: $button-width-order;
+  }
+    &:hover{
+    &::after {
+        opacity: 1;
 
-      }
-      }
-      &:not(:hover){
-      &::after {
-          opacity: 0;
-          transition: $button-transition;
-      }
-      }
-      &::after {
-      @include cta-button-hover-after($button-width-explore);
-      }
+    }
+    }
+    &:not(:hover){
+    &::after {
+        opacity: 0;
+        transition: $button-transition;
+    }
+    }
+    &::after {
+    @include cta-button-hover-after;
+    }
   }
 
 

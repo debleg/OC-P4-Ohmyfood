@@ -1,4 +1,4 @@
-//those elements are specific to index.html for this project
+//the following elements are specific to index.html for this project
 
 
 .location {
@@ -7,7 +7,6 @@
     color: $paler-dark-color;
     @include flex-param(row, center, center, 17px);
     filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
-    //above disappears on desktop??
 
     &__icon {
     width: 12px;
