@@ -706,6 +706,9 @@ body {
   width: 100%;
   animation: slidingcourses 2s ease-in-out backwards;
 }
+.course__section--4dishes {
+  height: 351px;
+}
 .course__section--anim1 {
   animation-delay: 0s;
 }

@@ -114,6 +114,9 @@ body {
   max-width: 634px;
   width: 100%;
   animation: slidingcourses 2s ease-in-out backwards;
+  &__section--4dishes {
+    height: 351px;
+  }
   &__section--anim1 {
     @include slidingcourses(first);
   }
