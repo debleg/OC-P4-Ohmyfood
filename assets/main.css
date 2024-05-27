@@ -405,6 +405,11 @@ a {
     flex-direction: row;
   }
 }
+@media screen and (min-width: 1200px) {
+  .function__steps {
+    justify-content: space-around;
+  }
+}
 
 .step {
   display: flex;
@@ -611,29 +616,64 @@ body {
      object-fit: cover;
   height: 275px;
 }
+@media screen and (min-width: 992px) {
+  .menubackground {
+    height: 383px;
+  }
+}
 
 .menu {
   display: flex;
   flex-direction: column;
   justify-content: normal;
-  align-items: normal;
+  align-items: center;
   gap: 40px;
   border-top-left-radius: 32px;
   border-top-right-radius: 32px;
   padding-top: 32px;
+  padding-left: 13px;
+  padding-right: 13px;
   background-color: #F6F6F6;
   position: relative;
+  overflow: hidden;
   top: -32px;
   margin-bottom: -32px;
+}
+@media screen and (min-width: 600px) {
+  .menu {
+    padding-left: 10vw;
+    padding-right: 10vw;
+  }
+}
+@media screen and (min-width: 768px) {
+  .menu {
+    padding-left: 14.24vw;
+    padding-right: 14.24vw;
+    margin-left: 5vw;
+    margin-right: 5vw;
+  }
+}
+@media screen and (min-width: 992px) {
+  .menu {
+    margin-left: 13.4vw;
+    margin-right: 13.4vw;
+  }
 }
 .menu__header {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   gap: 0px;
   padding-left: 17px;
   padding-right: 17px;
+  width: 100%;
+}
+@media screen and (min-width: 600px) {
+  .menu__header {
+    justify-content: center;
+    gap: 20px;
+  }
 }
 .menu__header--fav {
   margin-right: 7px;
@@ -649,7 +689,7 @@ body {
 
 @keyframes slidingcourses {
   from {
-    transform: translateX(100%);
+    transform: translateX(175%);
   }
   to {
     transform: translateX(0);
@@ -661,18 +701,19 @@ body {
   justify-content: normal;
   align-items: normal;
   gap: 12px;
-  padding-left: 13px;
-  padding-right: 13px;
+  height: 270px;
+  max-width: 634px;
+  width: 100%;
   animation: slidingcourses 2s ease-in-out backwards;
 }
 .course__section--anim1 {
-  animation-delay: 1s;
+  animation-delay: 0s;
 }
 .course__section--anim2 {
-  animation-delay: 2s;
+  animation-delay: 1s;
 }
 .course__section--anim3 {
-  animation-delay: 3s;
+  animation-delay: 2s;
 }
 .course__title {
   font-family: "Roboto", sans-serif;
@@ -700,19 +741,24 @@ body {
   justify-content: space-between;
   align-items: normal;
   gap: 5px;
-  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .dish__title {
   font-family: "Roboto", sans-serif;
   font-weight: 500;
   font-size: 18px;
+  overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .dish__desc {
   font-family: "Roboto", sans-serif;
   font-weight: 300;
   font-size: 15px;
+  overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .dish__price {
   font-family: "Roboto", sans-serif;
@@ -733,6 +779,16 @@ body {
 .dish {
   overflow: hidden;
   position: relative;
+}
+
+.dish:hover > .dish__text {
+  margin-right: 59px;
+  transition: margin 1s ease-in-out;
+}
+
+.dish:not(:hover) > .dish__text {
+  margin-right: 0;
+  transition: margin 1s ease-in-out;
 }
 
 .dish:hover > .dish__price {
@@ -802,6 +858,6 @@ body {
     transform: translateX(-59px);
   }
   to {
-    transform: translateX 0;
+    transform: translateX(0);
   }
 }/*# sourceMappingURL=main.css.map */

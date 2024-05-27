@@ -95,6 +95,9 @@
         @include responsive (large) {
         flex-direction: row;
         }
+        @include responsive (largest) {
+          justify-content: space-around;
+        }
     }
 }
   

@@ -17,6 +17,7 @@ body {
 ///to-do
 /// responsive for this menu page
 /// create other menu pages and apply the right imgs and text
+/// check the ellipsis!!!
 /// review code thoroughly and reconsider partials/folders (maybe mixins)
 /// note/reproduce the steps taken to animate each (see logic notes taken throughout)
 
@@ -26,23 +27,48 @@ body {
 .menubackground {
   width: 100%;
   object-fit: cover;
-  height: 275px; //see ratio with desktop
+  height: 275px;
+  @include responsive (large) {
+    height: 383px;
+  }
 }
 
 .menu {
-  @include flex-param(column, normal, normal, 40px);
+  @include flex-param (column, normal, center, 40px);
   border-top-left-radius: 32px;
   border-top-right-radius: 32px;
   padding-top: 32px;
+  padding-left: 13px;
+  padding-right: 13px;
   background-color: #F6F6F6; //make it a variable if it occurs a few more times
   position: relative;
+  overflow: hidden;
   top: -32px;
   margin-bottom: -32px;
+  @include responsive (intermediate) {
+    padding-left: 10vw;
+    padding-right: 10vw;
+  }
+  @include responsive (medium) {
+    padding-left: 14.24vw;
+    padding-right: 14.24vw;
+    margin-left: 5vw;
+    margin-right: 5vw;
+  }
+  @include responsive (large) {
+    margin-left: 13.4vw;
+    margin-right:13.4vw;
+  }
 
   &__header {
-    @include flex-param (row, space-between, center, 0px);
+    @include flex-param (row, space-around, center, 0px);
     padding-left: 17px;
     padding-right: 17px;
+    width: 100%;
+    @include responsive (intermediate) {
+      justify-content: center;
+      gap: 20px;
+    }
     
     &--fav {
       margin-right: 7px;
@@ -61,7 +87,7 @@ body {
 // slide in courses 
 @keyframes slidingcourses {
   from {
-    transform: translateX(100%);
+    transform: translateX(175%); //varying padding throws it off
   }
   to {
     transform: translateX(0);
@@ -70,21 +96,23 @@ body {
 
 @mixin slidingcourses($coursenumber) {
   @if $coursenumber == "first" {
-    animation-delay: 1s;
+    animation-delay: 0s;
   }
   @if $coursenumber == "second" {
-    animation-delay: 2s;
+    animation-delay: 1s;
   }
   @if $coursenumber == "third" {
-    animation-delay: 3s;
+    animation-delay: 2s;
   }
 }
 
 
 .course {
   @include flex-param (column, normal, normal, 12px);
-  padding-left: 13px;
-  padding-right: 13px;
+
+  height: 270px;
+  max-width: 634px;
+  width: 100%;
   animation: slidingcourses 2s ease-in-out backwards;
   &__section--anim1 {
     @include slidingcourses(first);
@@ -118,15 +146,20 @@ body {
 
   &__text {
     @include flex-param (column, space-between, normal, 5px);
-    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   &__title {
     @include text-font ($font-medium, 18px);
+    overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
   }
   &__desc {
     @include text-font ($font-light, 15px);
+    overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
   }
   &__price {
     @include text-font ($font-bold, 15px);
@@ -149,9 +182,20 @@ body {
   position: relative;
 }
 
+.dish:hover > .dish__text {
+  margin-right: 59px;
+  transition: margin 1s ease-in-out;
+}
+
+.dish:not(:hover) > .dish__text {
+  margin-right: 0;
+  transition: margin 1s ease-in-out;
+}
+
 .dish:hover > .dish__price {
   animation: slidepriceyes 1s ease-in-out forwards;
 }
+
 
 .dish:not(:hover) > .dish__price {
   animation: slidepriceno 1s ease-in-out forwards;
@@ -219,6 +263,6 @@ body {
     transform: translateX(-59px);
 }
   to {
-    transform: translateX (0);
+    transform: translateX(0);
     }
 }
