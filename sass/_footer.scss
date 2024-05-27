@@ -14,7 +14,7 @@
     }
   
     &__logo {
-      @include font-logo(18px);
+      @include font-logo (18px);
       text-align: left;
       vertical-align: text-top;
       width: 137px;
@@ -30,8 +30,8 @@
     &__navsection {
         @include flex-param (column, normal, normal, 7px);
         @include responsive (large) {
-            flex-direction: row;
-            padding-right: 40px;
+          flex-direction: row;
+          padding-right: 40px;
         }
     }
     
