@@ -1,32 +1,32 @@
 .header {
-    @include homepage-section-style(white);
-    @include flex-param(row, center, center, 0px);
-    height: 63px;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
-    position: relative;
-    z-index: 2;
-    @include responsive (large) {
-        height: 96px;
-    }
-  
-    &__goback {
-     @include flex-param(row, center, center, 0px); 
-      height: 30px;
-      width: 30px;
-      position: absolute;
-      left: 17px;
-      
-      &--homepage {
-        display: none;
-      }
-    }
-  
-    &__logo {
-      @include font-logo(30px);
-      text-align: center;
-      height: 36px;
-      @include responsive (large) {
-        height: 50px;
-      }
+  @include homepage-section-style(white);
+  @include flex-param(row, center, center, 0px);
+  height: 63px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+  position: relative;
+  z-index: 2;
+  @include responsive(large) {
+    height: 96px;
+  }
+
+  &__goback {
+    @include flex-param(row, center, center, 0px); 
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    left: 17px;
+    
+    &--homepage {
+      display: none;
     }
   }
+
+  &__logo {
+    @include font-logo(30px);
+    text-align: center;
+    height: 36px;
+    @include responsive(large) {
+      height: 50px;
+    }
+  }
+}

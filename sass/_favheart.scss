@@ -1,0 +1,64 @@
+
+$fav-remove-border: -webkit-text-stroke 300ms ease-in-out, color 300ms ease-in-out;
+$fav-color-in: transform 300ms ease-in-out, opacity 300ms ease-in-out;
+
+
+@mixin fav-button {
+  padding-top: 10px;
+  width: 25px;
+  height: 21px;
+  -webkit-text-stroke: black 1px;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  z-index: 1;
+  transition: $fav-remove-border;
+}
+
+@mixin fav-button-after {
+  content:"\f004";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  background: linear-gradient($secondary-color, $primary-color);
+  background-clip: text;
+  color: transparent;
+  transform: scale(0);
+  opacity: 0;
+  padding-right: 22px;
+  padding-top: 10px;
+  transition: $fav-color-in;
+}
+
+
+.fav-button {
+  @include fav-button;
+
+  &:hover {
+    -webkit-text-stroke: transparent;
+    color: transparent;
+  }
+
+  &:not(:hover) {
+    transition: $fav-remove-border;
+  }
+
+  &::after {
+    @include fav-button-after;
+  }
+
+  &:hover {
+    &::after{
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  &:not(:hover){
+    ::after{
+      transition: $fav-color-in;
+    }
+  }
+}

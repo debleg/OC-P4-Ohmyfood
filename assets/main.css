@@ -44,6 +44,7 @@ a {
 .header__logo {
   font-family: "Shrikhand", serif;
   font-size: 30px;
+  color: #101010;
   text-align: center;
   height: 36px;
 }
@@ -72,6 +73,8 @@ a {
 .footer__logo {
   font-family: "Shrikhand", serif;
   font-size: 18px;
+  color: #101010;
+  color: inherit;
   text-align: left;
   vertical-align: text-top;
   width: 137px;
@@ -135,6 +138,7 @@ a {
 .loader__welcome {
   font-family: "Shrikhand", serif;
   font-size: 2em;
+  color: #101010;
   opacity: 0;
   animation: loaderwelcome 2.25s ease-in-out forwards;
 }
@@ -144,6 +148,7 @@ a {
 .loader__logo {
   font-family: "Shrikhand", serif;
   font-size: 2em;
+  color: #101010;
   padding-bottom: 0.3em;
   background: linear-gradient(-45deg, #FF79DA, #9356DC) 0 100%/0% 10px no-repeat;
   border-radius: 10px;
@@ -397,7 +402,7 @@ a {
   justify-content: normal;
   align-items: center;
   gap: 24px;
-  margin-left: 12px; /*offsets the number*/
+  margin-left: 12px; /*offsets the circled number*/
   margin-right: 3px;
 }
 @media screen and (min-width: 992px) {
@@ -606,10 +611,6 @@ a {
   align-items: center;
 }
 
-body {
-  min-width: 320px;
-}
-
 .menubackground {
   width: 100%;
   -o-object-fit: cover;
@@ -737,6 +738,50 @@ body {
   background-color: white;
   padding: 15px;
   filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.1));
+  overflow: hidden;
+  position: relative;
+}
+.dish::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 22px;
+  content: "\f058";
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 59px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+  opacity: 0;
+  background-color: #99E2D0;
+  color: white;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  animation: slidecheckyes 1s ease-in-out;
+}
+.dish:hover > .dish__text {
+  margin-right: 59px;
+  transition: margin 1s ease-in-out;
+}
+.dish:hover > .dish__price {
+  animation: slidepriceyes 1s ease-in-out forwards;
+}
+.dish:hover::after {
+  opacity: 1;
+}
+.dish:not(:hover) > .dish__text {
+  margin-right: 0;
+  transition: margin 1s ease-in-out;
+}
+.dish:not(:hover) > .dish__price {
+  animation: slidepriceno 1s ease-in-out forwards;
+}
+.dish:not(:hover)::after {
+  animation: opacity 0s 1s ease-in-out, slidecheckno 1s ease-in-out;
 }
 .dish__text {
   display: flex;
@@ -779,60 +824,6 @@ body {
   padding-bottom: 40px;
 }
 
-.dish {
-  overflow: hidden;
-  position: relative;
-}
-
-.dish:hover > .dish__text {
-  margin-right: 59px;
-  transition: margin 1s ease-in-out;
-}
-
-.dish:not(:hover) > .dish__text {
-  margin-right: 0;
-  transition: margin 1s ease-in-out;
-}
-
-.dish:hover > .dish__price {
-  animation: slidepriceyes 1s ease-in-out forwards;
-}
-
-.dish:not(:hover) > .dish__price {
-  animation: slidepriceno 1s ease-in-out forwards;
-}
-
-.dish::after {
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-  font-size: 22px;
-  content: "\f058";
-  position: absolute;
-  right: 0;
-  top: 0;
-  height: 100%;
-  width: 59px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 0px;
-  opacity: 0;
-  background-color: #99E2D0;
-  color: white;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
-  animation: slidecheckyes 1s ease-in-out;
-}
-
-.dish:hover::after {
-  opacity: 1;
-}
-
-.dish:not(:hover)::after {
-  animation: opacity 0s 1s ease-in-out, slidecheckno 1s ease-in-out;
-}
-
 @keyframes slidecheckyes {
   from {
     transform: translateX(100%);
@@ -863,4 +854,7 @@ body {
   to {
     transform: translateX(0);
   }
+}
+body {
+  min-width: 320px;
 }/*# sourceMappingURL=main.css.map */
