@@ -44,6 +44,7 @@ a {
 .header__logo {
   font-family: "Shrikhand", serif;
   font-size: 30px;
+  color: #101010;
   text-align: center;
   height: 36px;
 }
@@ -72,6 +73,8 @@ a {
 .footer__logo {
   font-family: "Shrikhand", serif;
   font-size: 18px;
+  color: #101010;
+  color: inherit;
   text-align: left;
   vertical-align: text-top;
   width: 137px;
@@ -135,6 +138,7 @@ a {
 .loader__welcome {
   font-family: "Shrikhand", serif;
   font-size: 2em;
+  color: #101010;
   opacity: 0;
   animation: loaderwelcome 2.25s ease-in-out forwards;
 }
@@ -144,6 +148,7 @@ a {
 .loader__logo {
   font-family: "Shrikhand", serif;
   font-size: 2em;
+  color: #101010;
   padding-bottom: 0.3em;
   background: linear-gradient(-45deg, #FF79DA, #9356DC) 0 100%/0% 10px no-repeat;
   border-radius: 10px;
@@ -397,7 +402,7 @@ a {
   justify-content: normal;
   align-items: center;
   gap: 24px;
-  margin-left: 12px; /*offsets the number*/
+  margin-left: 12px; /*offsets the circled number*/
   margin-right: 3px;
 }
 @media screen and (min-width: 992px) {
@@ -604,10 +609,6 @@ a {
   margin-right: 18px;
   display: flex;
   align-items: center;
-}
-
-body {
-  min-width: 320px;
 }
 
 .menubackground {
@@ -863,4 +864,7 @@ body {
   to {
     transform: translateX(0);
   }
+}
+body {
+  min-width: 320px;
 }/*# sourceMappingURL=main.css.map */

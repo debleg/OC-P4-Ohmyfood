@@ -1,5 +1,6 @@
 
-// Loader
+// Loader (specific to the homepage at this stage)
+
 .loader {
     position: fixed;
     top: 0;
@@ -22,7 +23,7 @@
     }
 
     &__welcome {
-        @include font-logo (2em);
+        @include font-logo(2em);
         opacity: 0;
         animation: loaderwelcome 2.25s ease-in-out forwards;
 
@@ -32,7 +33,7 @@
     }
 
     &__logo {
-        @include font-logo (2em);
+        @include font-logo(2em);
         padding-bottom: 0.3em;
         background: linear-gradient(-45deg, $secondary-color,$primary-color) 0 100%/0% 10px no-repeat;
         border-radius: 10px;
@@ -52,19 +53,19 @@
     }
     to {
         transform: scale(1);
-        opacity: 1
+        opacity: 1;
     }
 }
 
 @keyframes loadingline {
     to {
-        background-size: 100% 10px
+        background-size: 100% 10px;
     }
 }
 
 @keyframes loaderdisplay {
     90% {
-        opacity: 1
+        opacity: 1;
     }
     100% {
         opacity: 0;
