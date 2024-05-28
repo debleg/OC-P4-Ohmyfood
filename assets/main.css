@@ -738,6 +738,50 @@ a {
   background-color: white;
   padding: 15px;
   filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.1));
+  overflow: hidden;
+  position: relative;
+}
+.dish::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 22px;
+  content: "\f058";
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 59px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+  opacity: 0;
+  background-color: #99E2D0;
+  color: white;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  animation: slidecheckyes 1s ease-in-out;
+}
+.dish:hover > .dish__text {
+  margin-right: 59px;
+  transition: margin 1s ease-in-out;
+}
+.dish:hover > .dish__price {
+  animation: slidepriceyes 1s ease-in-out forwards;
+}
+.dish:hover::after {
+  opacity: 1;
+}
+.dish:not(:hover) > .dish__text {
+  margin-right: 0;
+  transition: margin 1s ease-in-out;
+}
+.dish:not(:hover) > .dish__price {
+  animation: slidepriceno 1s ease-in-out forwards;
+}
+.dish:not(:hover)::after {
+  animation: opacity 0s 1s ease-in-out, slidecheckno 1s ease-in-out;
 }
 .dish__text {
   display: flex;
@@ -778,60 +822,6 @@ a {
   gap: 0px;
   text-align: center;
   padding-bottom: 40px;
-}
-
-.dish {
-  overflow: hidden;
-  position: relative;
-}
-
-.dish:hover > .dish__text {
-  margin-right: 59px;
-  transition: margin 1s ease-in-out;
-}
-
-.dish:not(:hover) > .dish__text {
-  margin-right: 0;
-  transition: margin 1s ease-in-out;
-}
-
-.dish:hover > .dish__price {
-  animation: slidepriceyes 1s ease-in-out forwards;
-}
-
-.dish:not(:hover) > .dish__price {
-  animation: slidepriceno 1s ease-in-out forwards;
-}
-
-.dish::after {
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-  font-size: 22px;
-  content: "\f058";
-  position: absolute;
-  right: 0;
-  top: 0;
-  height: 100%;
-  width: 59px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 0px;
-  opacity: 0;
-  background-color: #99E2D0;
-  color: white;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
-  animation: slidecheckyes 1s ease-in-out;
-}
-
-.dish:hover::after {
-  opacity: 1;
-}
-
-.dish:not(:hover)::after {
-  animation: opacity 0s 1s ease-in-out, slidecheckno 1s ease-in-out;
 }
 
 @keyframes slidecheckyes {

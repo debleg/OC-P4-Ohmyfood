@@ -113,69 +113,15 @@
  
 
 .dish {
-    @include flex-param(row, space-between, flex-end, 5px);
-    border-radius: 15px;
-    background-color: white;
-    padding: 15px;
-    filter:drop-shadow(0 4px 15px rgba(0, 0, 0, 0.1));
-  
-    &__text {
-      @include flex-param(column, space-between, normal, 5px);
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    &__title {
-      @include text-font($font-medium, 18px);
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-    &__desc {
-      @include text-font($font-light, 15px);
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-    &__price {
-      @include text-font($font-bold, 15px);
-    }
-}
-  
-.order {
-    @include flex-param(column, center, center, 0px);
-    text-align: center;
-    padding-bottom: 40px;
-}
-  
-  
-// dish check
-  
-  
-.dish {
-    overflow: hidden;
-    position: relative;
-}
-  
-.dish:hover > .dish__text {
-    margin-right: 59px;
-    transition: margin 1s ease-in-out;
-}
-  
-.dish:not(:hover) > .dish__text {
-    margin-right: 0;
-    transition: margin 1s ease-in-out;
-}
-  
-.dish:hover > .dish__price {
-    animation: slidepriceyes 1s ease-in-out forwards;
-}
-  
-  
-.dish:not(:hover) > .dish__price {
-    animation: slidepriceno 1s ease-in-out forwards;
-}
-  
-.dish::after {
+  @include flex-param(row, space-between, flex-end, 5px);
+  border-radius: 15px;
+  background-color: white;
+  padding: 15px;
+  filter:drop-shadow(0 4px 15px rgba(0, 0, 0, 0.1));
+  overflow: hidden;
+  position: relative;
+
+  &::after {
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
     font-size: 22px;
@@ -192,16 +138,62 @@
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
     animation: slidecheckyes 1s ease-in-out;
+  }
+  
+  &:hover {
+    & > .dish__text {
+      margin-right: 59px;
+      transition: margin 1s ease-in-out;
+    }
+    & > .dish__price {
+      animation: slidepriceyes 1s ease-in-out forwards;
+    }
+    &::after {
+      opacity: 1;
+    }
+  }
+
+  &:not(:hover) {
+    & > .dish__text {
+      margin-right: 0;
+      transition: margin 1s ease-in-out;
+    }
+    & > .dish__price {
+      animation: slidepriceno 1s ease-in-out forwards;
+    }
+    &::after {
+      animation: opacity 0s 1s ease-in-out, slidecheckno 1s ease-in-out; 
+    }
+  }
+
+  &__text {
+    @include flex-param(column, space-between, normal, 5px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  &__title {
+    @include text-font($font-medium, 18px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  &__desc {
+    @include text-font($font-light, 15px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  &__price {
+    @include text-font($font-bold, 15px);
+  }
 }
   
-  
-.dish:hover::after {
-    opacity: 1;
+.order {
+  @include flex-param(column, center, center, 0px);
+  text-align: center;
+  padding-bottom: 40px;
 }
   
-.dish:not(:hover)::after {
-    animation: opacity 0s 1s ease-in-out, slidecheckno 1s ease-in-out; 
-}
   
 @keyframes slidecheckyes {
     from {
