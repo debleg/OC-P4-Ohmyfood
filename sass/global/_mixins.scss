@@ -1,0 +1,36 @@
+
+//General mixins used in more than one page, see layout for responsive
+
+//fonts
+
+
+@mixin font-logo($font-size) {
+    font-family: "Shrikhand", serif;
+    font-size: $font-size;
+    color: #101010;
+}
+
+@mixin text-font($font-weight, $font-size) {
+    font-family: "Roboto", sans-serif;
+    font-weight: $font-weight;
+    font-size: $font-size;
+}
+
+//flex
+
+@mixin flex-param($flex-direction, $justify-content, $align-items, $gap) {
+    display: flex;
+    flex-direction: $flex-direction;
+    justify-content: $justify-content;
+    align-items: $align-items;
+    gap: $gap;
+}
+
+//homepage
+
+
+@mixin homepage-section-style($background-color) {
+    padding-left: 17px;
+    padding-right: 17px;
+    background-color: $background-color;
+}

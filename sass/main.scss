@@ -1,15 +1,15 @@
 @import 
 //global
-'./resets', './_variables', './mixins',
+'./global/resets', './global/layout', './global/variables', './global/mixins',
 //sections
-'./header',
-'./footer',
-//elements
-'./loader', './button', './favheart',
-//page-specific
-'./homepage', './menupage';
+'./sections/header', './sections/footer',
+//components
+'./components/loader', './components/button', './components/favheart',
+//pages
+'./pages/homepage', './pages/menupage';
 
 
-body {
-  min-width: 320px;
-}
+
+//look at:
+/// responsive
+/// animations (button/heart/loader/dish/green check)
