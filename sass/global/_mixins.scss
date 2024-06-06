@@ -26,10 +26,10 @@
     gap: $gap;
 }
 
-//homepage
+//section style
 
 
-@mixin homepage-section-style($background-color) {
+@mixin page-section-style($background-color) {
     padding-left: 17px;
     padding-right: 17px;
     background-color: $background-color;
