@@ -9,32 +9,69 @@
   filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
 
   &__icon {
-  width: 12px;
-  height: 16px;
-  display: flex;
+    width: 12px;
+    height: 16px;
+    display: flex;
   }
 
   &__text {
-  font-family: 'Roboto', sans-serif;
-  font-weight: bold;
-  font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
   }
 }
   
   
 .cta {
-  @include homepage-section-style($background-color-light);
+  @include page-section-style($background-color-light);
   padding-top: 39px;
   padding-bottom: 57px;
   @include flex-param(column, center, center, 18px);
   text-align: center;
   @include responsive(intermediate) {
+    padding-left: 4vw;
+    padding-right: 4vw;
+  }
+  @include responsive(large) {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 8vw;
+    padding-right: 8vw;
+  }
+  @include responsive(largest) {
+    padding-left: 12.5vw;
+    padding-right: 12.5vw;
+  }
+
+  &__title {
+    @include text-font($font-bold, 24px);
+    display: flex;
+    @include responsive(large) {
+    font-size: 2.5rem;
+    }
+  }
+
+  &__text {
+    display: flex;
+    @include text-font($font-light, 18px);
+    color: $paler-dark-color;
+    min-height: 41px;
+    max-height: 46px;
+    align-items: center;
+  }
+}
+  
+
+.function {
+  @include page-section-style(white);
+  padding-top: 52px;
+  padding-bottom: 67px;
+  @include flex-param(column, normal, normal, 25px);
+  @include responsive(intermediate) {
       padding-left: 4vw;
       padding-right: 4vw;
   }
   @include responsive(large) {
-      padding-top: 30px;
-      padding-bottom: 30px;
       padding-left: 8vw;
       padding-right: 8vw;
   }
@@ -45,100 +82,63 @@
 
   &__title {
       @include text-font($font-bold, 24px);
-      display: flex;
-      @include responsive(large) {
-      font-size: 2.77vw;
-      }
+      height: 31px;
+      @include responsive(middlestep) {
+      margin: auto;
+      } 
   }
 
-  &__text {
-      display: flex;
-      @include text-font($font-light, 18px);
-      color: $paler-dark-color;
-      min-height: 41px;
-      max-height: 46px;
-      align-items: center;
-  }
-}
-  
-
-.function {
-    @include homepage-section-style(white);
-    padding-top: 52px;
-    padding-bottom: 67px;
-    @include flex-param(column, normal, normal, 25px);
-    @include responsive(intermediate) {
-        padding-left: 4vw;
-        padding-right: 4vw;
-    }
+  &__steps {
+    @include flex-param(column, normal, center, 24px);
+    margin-left: 12px; /*offsets the circled number*/
+    margin-right: 3px;
     @include responsive(large) {
-        padding-left: 8vw;
-        padding-right: 8vw;
+    flex-direction: row;
     }
     @include responsive(largest) {
-        padding-left: 12.5vw;
-        padding-right: 12.5vw;
+      justify-content: space-around;
     }
-
-    &__title {
-        @include text-font($font-bold, 24px);
-        height: 31px;
-        @include responsive(middlestep) {
-        margin: auto;
-        } 
-    }
-
-    &__steps {
-        @include flex-param(column, normal, center, 24px);
-        margin-left: 12px; /*offsets the circled number*/
-        margin-right: 3px;
-        @include responsive(large) {
-        flex-direction: row;
-        }
-        @include responsive(largest) {
-          justify-content: space-around;
-        }
-    }
+  }
 }
   
 .step {
-      @include flex-param(row, normal,center, 0px);
-      background-color: #F6F6F6;
-      border-radius: 20px;
-      filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.15));
-      position: relative;
-      width: 100%;
-      height: 72.38px;
-      max-width: 335px;
-  
-    &__number {
-      color: white;
-      background-color: $primary-color;
-      border-radius: 50%;
-      @include text-font($font-medium, 14px);
-      @include flex-param(row, center, center, 0px);
-      height: 24px;
-      width: 24px;
-      position: absolute;
-      left: -12px;
+    @include flex-param(row, normal,center, 0px);
+    background-color: #F6F6F6;
+    border-radius: 20px;
+    filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.15));
+    position: relative;
+    width: 100%;
+    height: 72.38px;
+    max-width: 335px;
+
+  &__number {
+    color: white;
+    background-color: $primary-color;
+    border-radius: 50%;
+    @include text-font($font-medium, 14px);
+    @include flex-param(row, center, center, 0px);
+    height: 24px;
+    width: 24px;
+    position: absolute;
+    left: -12px;
+  }
+
+  &__icon {
+    color: #7E7E7E;
+    position: absolute;
+    left: 37px;
+    font-size: 17.5px;
+    
+    &--focus {
+      color: $primary-color;
     }
-  
-    &__icon {
-      color: #7E7E7E;
-      position: absolute;
-      left: 37px;
-      font-size: 17.5px;
-      
-      &--focus {
-        color: $primary-color;
-      }
-    }
-  
-    &__text {
-      @include text-font($font-medium, 16px);
-      position: absolute;
-      left: 75px;
-    }
+  }
+
+  &__text {
+    @include text-font($font-medium, 16px);
+    position: absolute;
+    left: 75px;
+  }
 }
   
   
@@ -146,7 +146,7 @@
   
   
 .restaurants {
-  @include homepage-section-style($background-color-light);
+  @include page-section-style($background-color-light);
   padding-bottom: 66px;
   padding-top: 56px;
   @include flex-param(column, center, normal, 23px);
@@ -166,7 +166,7 @@
     padding-right: 12.5vw;
   }
 
-  &__title{
+  &__title {
     @include text-font($font-bold, 24px);
     padding-left: 3px;
     align-self: self-start;
@@ -196,7 +196,7 @@
   }
 }
   
-.restaurants-card {
+.restaurantsCard {
   @include flex-param(column, normal, normal, 0px);
   width: 100%;
   height: 251px;

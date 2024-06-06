@@ -8,6 +8,10 @@ a {
   color: inherit;
 }
 
+body {
+  min-width: 320px;
+}
+
 .header {
   padding-left: 17px;
   padding-right: 17px;
@@ -123,7 +127,7 @@ a {
   height: 100%;
   opacity: 1;
   z-index: -1;
-  animation: loaderdisplay 3s forwards;
+  animation: loaderdisplay 2s forwards;
 }
 .loader__base {
   display: flex;
@@ -182,7 +186,7 @@ a {
 }
 .homepage {
   opacity: 0;
-  animation: homepagereveal 0s 3s forwards;
+  animation: homepagereveal 1s 1.75s ease-in-out forwards;
 }
 
 @keyframes homepagereveal {
@@ -218,7 +222,7 @@ a {
 }
 .cta__button:not(:hover)::after {
   opacity: 0;
-  transition: opacity 250ms ease-in-out;
+  transition: opacity 25ms ease-in-out;
 }
 .cta__button::after {
   content: "";
@@ -232,7 +236,7 @@ a {
   border-radius: 25px;
   background: linear-gradient(#ff8de0, #9e67e0);
   filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.35));
-  transition: opacity 250ms ease-in-out;
+  transition: opacity 25ms ease-in-out;
 }
 
 .fav-button {
@@ -341,7 +345,7 @@ a {
 }
 @media screen and (min-width: 992px) {
   .cta__title {
-    font-size: 2.77vw;
+    font-size: 2.5rem;
   }
 }
 .cta__text {
@@ -543,7 +547,7 @@ a {
   }
 }
 
-.restaurants-card {
+.restaurantsCard {
   display: flex;
   flex-direction: column;
   justify-content: normal;
@@ -556,7 +560,7 @@ a {
   position: relative;
   filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.15));
 }
-.restaurants-card__image {
+.restaurantsCard__image {
   width: 100%;
   height: 174px;
   border-top-left-radius: 15px;
@@ -564,7 +568,7 @@ a {
   -o-object-fit: cover;
      object-fit: cover;
 }
-.restaurants-card__image--new {
+.restaurantsCard__image--new {
   position: absolute;
   font-family: "Roboto", sans-serif;
   font-weight: 500;
@@ -582,7 +586,7 @@ a {
   align-items: center;
   gap: 0px;
 }
-.restaurants-card__content {
+.restaurantsCard__content {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -591,21 +595,21 @@ a {
   width: 100%;
   height: 77px;
 }
-.restaurants-card__text {
+.restaurantsCard__text {
   padding-left: 14px;
 }
-.restaurants-card__title {
+.restaurantsCard__title {
   font-family: "Roboto", sans-serif;
   font-weight: 700;
   font-size: 18px;
   padding-bottom: 5px;
 }
-.restaurants-card__location {
+.restaurantsCard__location {
   font-family: "Roboto", sans-serif;
   font-weight: 300;
   font-size: 17px;
 }
-.restaurants-card__fav {
+.restaurantsCard__fav {
   margin-right: 18px;
   display: flex;
   align-items: center;
@@ -705,7 +709,7 @@ a {
   height: 270px;
   max-width: 634px;
   width: 100%;
-  animation: slidingcourses 2s ease-in-out backwards;
+  animation: slidingcourses 1.5s ease-in-out backwards;
 }
 .course__section--4dishes {
   height: 351px;
@@ -714,10 +718,10 @@ a {
   animation-delay: 0s;
 }
 .course__section--anim2 {
-  animation-delay: 1s;
+  animation-delay: 500ms;
 }
 .course__section--anim3 {
-  animation-delay: 2s;
+  animation-delay: 1s;
 }
 .course__title {
   font-family: "Roboto", sans-serif;
@@ -761,27 +765,27 @@ a {
   color: white;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
-  animation: slidecheckyes 1s ease-in-out;
+  animation: slidecheckyes 500ms ease-in-out;
 }
 .dish:hover > .dish__text {
   margin-right: 59px;
-  transition: margin 1s ease-in-out;
+  transition: margin 500ms ease-in-out;
 }
 .dish:hover > .dish__price {
-  animation: slidepriceyes 1s ease-in-out forwards;
+  animation: slidepriceyes 500ms ease-in-out forwards;
 }
 .dish:hover::after {
   opacity: 1;
 }
 .dish:not(:hover) > .dish__text {
   margin-right: 0;
-  transition: margin 1s ease-in-out;
+  transition: margin 500ms ease-in-out;
 }
 .dish:not(:hover) > .dish__price {
-  animation: slidepriceno 1s ease-in-out forwards;
+  animation: slidepriceno 500ms ease-in-out forwards;
 }
 .dish:not(:hover)::after {
-  animation: opacity 0s 1s ease-in-out, slidecheckno 1s ease-in-out;
+  animation: opacity 0s 500ms ease-in-out, slidecheckno 500ms ease-in-out;
 }
 .dish__text {
   display: flex;
@@ -854,7 +858,4 @@ a {
   to {
     transform: translateX(0);
   }
-}
-body {
-  min-width: 320px;
 }/*# sourceMappingURL=main.css.map */

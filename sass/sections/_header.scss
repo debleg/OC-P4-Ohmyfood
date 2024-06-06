@@ -1,5 +1,5 @@
 .header {
-  @include homepage-section-style(white);
+  @include page-section-style(white);
   @include flex-param(row, center, center, 0px);
   height: 63px;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));

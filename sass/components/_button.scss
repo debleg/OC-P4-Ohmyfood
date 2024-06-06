@@ -2,7 +2,7 @@
 
 $button-width-explore: 218px;
 $button-width-order: 186px;
-$button-transition: opacity 250ms ease-in-out;
+$button-transition: opacity 25ms ease-in-out;
 
 
 @mixin cta-button {
@@ -28,7 +28,7 @@ $button-transition: opacity 250ms ease-in-out;
   z-index: -1;
   border-radius: 25px;
   background: linear-gradient(lighten($secondary-color, 4), lighten($primary-color, 4));
-  filter: drop-shadow( 0 4px 10px rgba(0, 0, 0, 0.35));
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.35));
   transition: $button-transition;
 }
 
@@ -44,13 +44,13 @@ $button-transition: opacity 250ms ease-in-out;
     width: $button-width-order;
   }
 
-  &:hover{
+  &:hover {
     &::after {
       opacity: 1;
     }
   }
 
-  &:not(:hover){
+  &:not(:hover) {
     &::after {
      opacity: 0;
      transition: $button-transition;

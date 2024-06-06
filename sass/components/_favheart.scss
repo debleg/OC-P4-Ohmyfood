@@ -56,8 +56,8 @@ $fav-color-in: transform 300ms ease-in-out, opacity 300ms ease-in-out;
     }
   }
   
-  &:not(:hover){
-    ::after{
+  &:not(:hover) {
+    ::after {
       transition: $fav-color-in;
     }
   }

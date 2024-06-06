@@ -1,114 +1,114 @@
 
 .menubackground {
-    width: 100%;
-    object-fit: cover;
-    height: 275px;
-    @include responsive(large) {
-      height: 383px;
-    }
+  width: 100%;
+  object-fit: cover;
+  height: 275px;
+  @include responsive(large) {
+    height: 383px;
+  }
 }
   
 .menu {
-    @include flex-param(column, normal, center, 40px);
-    border-top-left-radius: 32px;
-    border-top-right-radius: 32px;
-    padding-top: 32px;
-    padding-left: 13px;
-    padding-right: 13px;
-    background-color: #F6F6F6;
-    position: relative;
-    overflow: hidden;
-    top: -32px;
-    margin-bottom: -32px;
+  @include flex-param(column, normal, center, 40px);
+  border-top-left-radius: 32px;
+  border-top-right-radius: 32px;
+  padding-top: 32px;
+  padding-left: 13px;
+  padding-right: 13px;
+  background-color: #F6F6F6;
+  position: relative;
+  overflow: hidden;
+  top: -32px;
+  margin-bottom: -32px;
+  @include responsive(intermediate) {
+    padding-left: 10vw;
+    padding-right: 10vw;
+  }
+  @include responsive(medium) {
+    padding-left: 14.24vw;
+    padding-right: 14.24vw;
+    margin-left: 5vw;
+    margin-right: 5vw;
+  }
+  @include responsive(large) {
+    margin-left: 13.4vw;
+    margin-right:13.4vw;
+  }
+
+  &__header {
+    @include flex-param(row, space-around, center, 0px);
+    padding-left: 17px;
+    padding-right: 17px;
+    width: 100%;
     @include responsive(intermediate) {
-      padding-left: 10vw;
-      padding-right: 10vw;
-    }
-    @include responsive(medium) {
-      padding-left: 14.24vw;
-      padding-right: 14.24vw;
-      margin-left: 5vw;
-      margin-right: 5vw;
-    }
-    @include responsive(large) {
-      margin-left: 13.4vw;
-      margin-right:13.4vw;
-    }
-  
-    &__header {
-      @include flex-param(row, space-around, center, 0px);
-      padding-left: 17px;
-      padding-right: 17px;
-      width: 100%;
-      @include responsive(intermediate) {
-        justify-content: center;
-        gap: 20px;
-      }
-
-      &--fav {
-        margin-right: 7px;
-        margin-top: 3px;
-        display: flex;
-        align-items: center;
-      }
+      justify-content: center;
+      gap: 20px;
     }
 
-    &__title {
-      @include font-logo(28px);
+    &--fav {
+      margin-right: 7px;
+      margin-top: 3px;
+      display: flex;
+      align-items: center;
     }
+  }
+
+  &__title {
+    @include font-logo(28px);
+  }
 }
   
   
 // slide in courses animation 
   
 @keyframes slidingcourses {
-    from {
-      transform: translateX(175%); //varying padding throws it off, do not leave at 100%
-    }
-    to {
-      transform: translateX(0);
-    }
+  from {
+    transform: translateX(175%); //varying padding throws it off, do not leave at 100%
+  }
+  to {
+    transform: translateX(0);
+  }
 }
 
 @mixin slidingcourses($coursenumber) {
-    @if $coursenumber == "first" {
-      animation-delay: 0s;
-    }
-    @if $coursenumber == "second" {
-      animation-delay: 1s;
-    }
-    @if $coursenumber == "third" {
-      animation-delay: 2s;
-    }
+  @if $coursenumber == "first" {
+    animation-delay: 0s;
+  }
+  @if $coursenumber == "second" {
+    animation-delay: 500ms;
+  }
+  @if $coursenumber == "third" {
+    animation-delay: 1s;
+  }
 }
 
 //course
   
 .course {
-    @include flex-param(column, normal, normal, 12px);
-    height: 270px;
-    max-width: 634px;
-    width: 100%;
-    animation: slidingcourses 2s ease-in-out backwards;
+  @include flex-param(column, normal, normal, 12px);
+  height: 270px;
+  max-width: 634px;
+  width: 100%;
+  animation: slidingcourses 1.5s ease-in-out backwards;
 
-    &__section--4dishes {
-      height: 351px;
-    }
-    &__section--anim1 {
-      @include slidingcourses(first);
-    }
-    &__section--anim2 {
-      @include slidingcourses(second);
-    }
-    &__section--anim3 {
-      @include slidingcourses(third);
-    }
-    &__title {
-      @include text-font($font-light, 16px);
-      height: 24px;
-      text-transform: uppercase;
-      background: linear-gradient($accent-color, $accent-color) left bottom/40px 3px no-repeat;
-    }
+  &__section--4dishes {
+    height: 351px;
+  }
+  &__section--anim1 {
+    @include slidingcourses(first);
+  }
+  &__section--anim2 {
+    @include slidingcourses(second);
+  }
+  &__section--anim3 {
+    @include slidingcourses(third);
+  }
+  &__title {
+    @include text-font($font-light, 16px);
+    height: 24px;
+    text-transform: uppercase;
+    background: linear-gradient($accent-color, $accent-color) left bottom/40px 3px no-repeat;
+  }
 }
  
 
@@ -137,16 +137,16 @@
     color: white;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
-    animation: slidecheckyes 1s ease-in-out;
+    animation: slidecheckyes 500ms ease-in-out;
   }
   
   &:hover {
     & > .dish__text {
       margin-right: 59px;
-      transition: margin 1s ease-in-out;
+      transition: margin 500ms ease-in-out;
     }
     & > .dish__price {
-      animation: slidepriceyes 1s ease-in-out forwards;
+      animation: slidepriceyes 500ms ease-in-out forwards;
     }
     &::after {
       opacity: 1;
@@ -156,13 +156,13 @@
   &:not(:hover) {
     & > .dish__text {
       margin-right: 0;
-      transition: margin 1s ease-in-out;
+      transition: margin 500ms ease-in-out;
     }
     & > .dish__price {
-      animation: slidepriceno 1s ease-in-out forwards;
+      animation: slidepriceno 500ms ease-in-out forwards;
     }
     &::after {
-      animation: opacity 0s 1s ease-in-out, slidecheckno 1s ease-in-out; 
+      animation: opacity 0s 500ms ease-in-out, slidecheckno 500ms ease-in-out; 
     }
   }
 
@@ -196,35 +196,36 @@
   
   
 @keyframes slidecheckyes {
-    from {
-      transform: translateX(100%);
-    }
-    to {
-      transform: translateX(0);
-    }
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
+
 @keyframes slidecheckno {
-    from {
-      opacity: 1;
-      transform: translateX(0);
-    }
-    to {
-      opacity: 1;
-      transform: translateX(100%);
-    }
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(100%);
+  }
 }
   
 @keyframes slidepriceyes {
-    to {
-      transform: translateX(-59px);
-    }
+  to {
+    transform: translateX(-59px);
+  }
 }
 
 @keyframes slidepriceno {
-    from {
-      transform: translateX(-59px);
-    }
-    to {
-      transform: translateX(0);
-    }
+  from {
+    transform: translateX(-59px);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
